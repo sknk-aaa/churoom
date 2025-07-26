@@ -1,24 +1,11 @@
-# README
+# Churoom
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+中央大学後楽園キャンパスの空き教室を簡単に検索できるWebアプリです。  
+「時間から探す」「教室から探す」の2つの検索モードを用意し、使いやすいUIで学生の時間割・自習に役立てられることを目指しています。
 
-Things you may want to cover:
+## 特長
 
-* Ruby version
+- 曜日・時限を指定して空き教室を検索
+- 教室を選択して空き時間帯を確認
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用技術

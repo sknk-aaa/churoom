@@ -1,0 +1,88 @@
+body {
+  color: #383e45;
+  font-family: "Avenir Next";
+}
+a {
+  text-decoration: none;
+  color:black;
+}
+li {
+  list-style: none;
+}
+ul{
+  padding: 0;
+}
+img{
+  width:100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ヘッダー部分*/
+header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header img{
+  width:124px;
+  padding-left:2%;
+}
+header ul{
+  display:flex;
+  padding-right:5%;
+}
+header li{
+  padding-right:1rem;
+  font-size:1.2rem;
+}
+
+/* メイン部分*/
+main{
+  margin: 0 5%;
+  background-color: aquamarine;
+}
+input[type="radio"][name="mode-select"] {
+  display: none;
+
+}
+input[type="radio"]:checked + label img {
+  border: 3px solid #00bfff;
+  border-radius: 6px;
+}
+.mode{
+  display:flex;
+  justify-content: center;
+  gap: 5%;
+  background-color: #dbf76c;
+}
+.mode label{
+  display: inline-block;
+  padding:0;
+  margin:0;
+  line-height: 0;
+  cursor: pointer;
+}
+.mode img{
+  display: block;
+  width:100px;
+}
+.search-time{
+  margin:0 auto;
+  text-align:center;
+}
+.btn-search{
+  display: inline-block;
+  margin-top:1rem;
+  background-color: rgb(255, 244, 127);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* フッター部分*/
+footer{
+  margin-top:1rem;
+  border-top:#353535 solid 1px;
+  text-align:center;
+}
