@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get "/" => "home#top"
+  get "/" => "home#top", as: :home_top
 end
