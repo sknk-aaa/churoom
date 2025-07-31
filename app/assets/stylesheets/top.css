@@ -1,43 +1,3 @@
-body {
-  color: #383e45;
-  font-family: "Avenir Next";
-}
-a {
-  text-decoration: none;
-  color:black;
-}
-li {
-  list-style: none;
-}
-ul{
-  padding: 0;
-}
-img{
-  width:100%;
-}
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* ヘッダー部分*/
-header{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 5%;
-}
-header .logo{
-  display: inline-block;
-  width:100px;
-}
-header ul{
-  display: flex;
-  gap: 1rem;
-  margin-right:1rem;
-}
-header ul li a{
-  font-size:1rem;
-}
 
 /* メイン部分*/
 main{
@@ -81,9 +41,3 @@ input[type="radio"]:checked + label img {
   cursor: pointer;
 }
 
-/* フッター部分*/
-footer{
-  margin-top:1rem;
-  border-top:#353535 solid 1px;
-  text-align:center;
-}
