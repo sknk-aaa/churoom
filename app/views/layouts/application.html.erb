@@ -23,6 +23,19 @@
   </head>
 
   <body>
+    <header>
+      <a href="/" class="logo"><%= image_tag "logo.png", alt: "ロゴ" %></a>
+      <ul>
+        <li><a href="/about" class="about">使い方</a></li>
+        <li><a href="/contact" class="contact">お問い合わせ</a></li>
+      </ul>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <p>© 2025 chuRoom</p>
+    </footer>
+
   </body>
 </html>
