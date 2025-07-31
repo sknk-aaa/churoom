@@ -24,18 +24,19 @@ header{
   display:flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 5%;
 }
-header img{
-  width:124px;
-  padding-left:2%;
+header .logo{
+  display: inline-block;
+  width:100px;
 }
 header ul{
-  display:flex;
-  padding-right:5%;
+  display: flex;
+  gap: 1rem;
+  margin-right:1rem;
 }
-header li{
-  padding-right:1rem;
-  font-size:1.2rem;
+header ul li a{
+  font-size:1rem;
 }
 
 /* メイン部分*/

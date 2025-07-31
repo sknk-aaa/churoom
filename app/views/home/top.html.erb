@@ -9,10 +9,10 @@
   <body>
     
     <header>
-      <%= image_tag "logo.png", alt: "ロゴ" %>
+      <a href="/" class="logo"><%= image_tag "logo.png", alt: "ロゴ" %></a>
       <ul>
-        <li><a>使い方</a></li>
-        <li><a>お問い合わせ</a></li>
+        <li><a href="/about" class="about">使い方</a></li>
+        <li><a href="/contact" class="contact">お問い合わせ</a></li>
       </ul>
     </header>
     
@@ -27,40 +27,40 @@
         <div class="search-time">
             <div class="select day-select">
                 <h2>曜日</h2>
-                    <input type="radio" name="day" valie="Mon" id="day-Mon">
+                    <input type="radio" name="day" value="Mon" id="day-Mon">
                     <label for="day-Mon">月</label>
 
-                    <input type="radio" name="day" valie="Tue" id="day-Tue">
+                    <input type="radio" name="day" value="Tue" id="day-Tue">
                     <label for="day-Tue">火</label>
 
-                    <input type="radio" name="day" valie="Wed" id="day-Wed">
+                    <input type="radio" name="day" value="Wed" id="day-Wed">
                     <label for="day-Wed">水</label>
 
-                    <input type="radio" name="day" valie="Thu" id="day-Thu">
+                    <input type="radio" name="day" value="Thu" id="day-Thu">
                     <label for="day-Thu">木</label>
 
-                    <input type="radio" name="day" valie="Fri" id="day-Fri">
+                    <input type="radio" name="day" value="Fri" id="day-Fri">
                     <label for="day-Fri">金</label>
 
-                    <input type="radio" name="day" valie="Sat" id="day-Sat">
+                    <input type="radio" name="day" value="Sat" id="day-Sat">
                     <label for="day-Sat">土</label>
             </div>
 
              <div class="select time-select">
                 <h2>時間</h2>
-                    <input type="radio" name="time" valie="one" id="1">
+                    <input type="radio" name="time" value="one" id="1">
                     <label for="1">1限</label>
 
-                    <input type="radio" name="time" valie="two" id="2">
+                    <input type="radio" name="time" value="two" id="2">
                     <label for="2">2限</label>
 
-                    <input type="radio" name="time" valie="three" id="3">
+                    <input type="radio" name="time" value="three" id="3">
                     <label for="3">3限</label>
 
-                    <input type="radio" name="time" valie="four" id="4">
+                    <input type="radio" name="time" value="four" id="4">
                     <label for="4">4限</label>
 
-                    <input type="radio" name="time" valie="five" id="5">
+                    <input type="radio" name="time" value="five" id="5">
                     <label for="5">5限</label>
             </div>
 
