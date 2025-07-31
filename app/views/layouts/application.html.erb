@@ -24,10 +24,12 @@
 
   <body>
     <header>
-      <a href="/" class="logo"><%= image_tag "logo.png", alt: "ロゴ" %></a>
+      <%= link_to "/", class: "logo" do %>
+        <%= image_tag "logo.png", alt: "logo" %>
+      <% end %>
       <ul>
-        <li><a href="/about" class="about">使い方</a></li>
-        <li><a href="/contact" class="contact">お問い合わせ</a></li>
+        <li><%= link_to("使い方", "/about") %></li>
+        <li><%= link_to("お問い合わせ", "/contact") %></li>
       </ul>
     </header>
 
