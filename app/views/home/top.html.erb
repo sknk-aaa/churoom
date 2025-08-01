@@ -12,7 +12,7 @@
     <main>
         <div class="mode">
             <input type="radio" name="mode-select" value="mode-time" id="time">
-            <label for="time"><%= image_tag "time.png", alt: "時間から探す" %></label>
+            <label for="time" class="mode-image"><%= image_tag "time.png", alt: "時間から探す" %></label>
             <input type="radio" name="mode-select" value="mode-room" id="room">
             <label for="room"><%= image_tag "room.png", alt: "教室から探す" %></label>
         </div>
@@ -21,21 +21,24 @@
             <%= form_with url: result_time_path, method: :get, local: true do %>
               <div class="select day-select">
                   <h2>曜日</h2>
+                  <div class="select-options">
                     <% days= [["Mon", "月"], ["Tue", "火"], ["Wed", "水"], ["Thu", "木"], ["Fri", "金"], ["Sat", "土"]] %>
                     <% days.each do |day, 曜日| %>
                       <input type="radio" name="day" value="<%= 曜日 %>" id="<%= day %>">
                       <label for="<%= day %>"><%= 曜日 %></label>
                     <% end %>
+                  </div>
               </div>
 
               <div class="select time-select">
                   <h2>時間</h2>
+                  <div class="select-options">
                     <% times= [["1", "1限"], ["2", "2限"], ["3", "3限"], ["4", "4限"], ["5", "5限"]] %>
                     <% times.each do |time, 時限| %>
-                      <input type="radio" name="time" value="<%= 時限 %>" id="time-<%= time %>">
+                      <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>">
                       <label for="time-<%= time %>"><%= 時限 %></label>
                     <% end %>
-              </div>
+                  </div>
 
               <div class="search">
                   <input type="submit" value="検索" class="btn btn-search">
@@ -44,7 +47,6 @@
         </div>
 
         <div class="search-room">
-
         </div>
 
     </main>
