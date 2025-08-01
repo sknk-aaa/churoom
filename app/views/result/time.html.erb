@@ -1,6 +1,6 @@
 <main>
     <div class=time-table_header>
-        <h1><%= params[:day] %>曜<%= params[:time] %>限</h1>
+        <h1><%= @days_dic[params[:day]] %>曜<%= params[:time] %>限</h1>
         <h2 class="time-table_title">空き教室一覧</h2>
     </div>
     <div class="time-table_body">
