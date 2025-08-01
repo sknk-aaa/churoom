@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: "home#index"
 
   get "search" => "home#search", as: :home_search
   get "about" => "home#about", as: :home_about
@@ -8,5 +8,4 @@ Rails.application.routes.draw do
 
   get "result/room" => "result#room", as: :result_room
   get "result/:day/:time" => "result#time",  as: :result_time
-
 end

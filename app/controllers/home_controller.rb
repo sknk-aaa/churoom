@@ -1,27 +1,25 @@
 class HomeController < ApplicationController
-
-  def index #講義時間内であれば対応したday,timeにリダイレクト、時間外には検索ページにリダイレクト
-    
-    week = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
-    day=week[Date.today.wday] #曜日をdayに代入
+  def index # 講義時間内であれば対応したday,timeにリダイレクト、時間外には検索ページにリダイレクト
+    week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+    day=week[Date.today.wday] # 曜日をdayに代入
 
     now = Time.zone.now
 
-    time= case now  #現在の時限をtimeに代入、講義時間外ならnilを返す
-          when Time.zone.now.change(hour: 8,  min: 50, sec: 0)...Time.zone.now.change(hour: 10, min: 40, sec: 0)
+    time= case now  # 現在の時限をtimeに代入、講義時間外ならnilを返す
+    when Time.zone.now.change(hour: 8,  min: 50, sec: 0)...Time.zone.now.change(hour: 10, min: 40, sec: 0)
             1
-          when Time.zone.now.change(hour: 10, min: 40, sec: 0)...Time.zone.now.change(hour: 12, min: 30, sec: 0)
+    when Time.zone.now.change(hour: 10, min: 40, sec: 0)...Time.zone.now.change(hour: 12, min: 30, sec: 0)
             2
-          when Time.zone.now.change(hour: 12, min: 30, sec: 0)...Time.zone.now.change(hour: 15, min: 00, sec: 0)
+    when Time.zone.now.change(hour: 12, min: 30, sec: 0)...Time.zone.now.change(hour: 15, min: 00, sec: 0)
             3
-          when Time.zone.now.change(hour: 15, min: 00, sec: 0)...Time.zone.now.change(hour: 16, min: 50, sec: 0)
+    when Time.zone.now.change(hour: 15, min: 00, sec: 0)...Time.zone.now.change(hour: 16, min: 50, sec: 0)
             4
-          when Time.zone.now.change(hour: 16, min: 50, sec: 0)...Time.zone.now.change(hour: 18, min: 40, sec: 0)
+    when Time.zone.now.change(hour: 16, min: 50, sec: 0)...Time.zone.now.change(hour: 18, min: 40, sec: 0)
             5
-          else
+    else
             nil
-          end
-    if time.present? #現在の時限がnilなら、検索ページにリダイレクト
+    end
+    if time.present? # 現在の時限がnilなら、検索ページにリダイレクト
       redirect_to result_time_path(
         day: day,
         time: time
@@ -43,5 +41,4 @@ class HomeController < ApplicationController
 
   def contact
   end
-  
 end
