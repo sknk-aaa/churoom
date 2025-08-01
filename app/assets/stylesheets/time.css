@@ -1,0 +1,16 @@
+.time-table_header {
+    width:80%;
+    margin: 0 auto;
+}
+.time-table_title{
+    text-align: center;
+}
+.building{
+    width:70%;
+    margin: 0 auto;
+}
+.time-table {
+    width: 80%;
+    margin: 0 auto;
+    display:flex;
+}

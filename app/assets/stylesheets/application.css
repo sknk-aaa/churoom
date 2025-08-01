@@ -41,7 +41,11 @@ header ul li{
 
 /* フッター部分*/
 footer{
-  margin-top:1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin:0 auto;
+  padding:0;
   border-top:#353535 solid 1px;
   text-align:center;
 }
