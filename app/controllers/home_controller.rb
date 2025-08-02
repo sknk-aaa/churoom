@@ -19,7 +19,7 @@ class HomeController < ApplicationController
     else
             nil
     end
-    if time.present? # 現在の時限がnilなら、検索ページにリダイレクト
+    if time.present? && day!= "Sun" # 現在の時限がnilなら、検索ページにリダイレクト
       redirect_to result_time_path(
         day: day,
         time: time

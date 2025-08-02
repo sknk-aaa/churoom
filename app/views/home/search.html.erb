@@ -22,9 +22,9 @@
               <div class="select day-select">
                   <h2>曜日</h2>
                   <div class="select-options">
-                    <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] %>
+                    <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
                     <% days.each do |day| %>
-                      <input type="radio" name="day" value="<%= day %>" id="<%= day %>">
+                      <input type="radio" name="day" value="<%= day %>" id="<%= day %>" required>
                       <label for="<%= day %>"><%= @days_dic[day] %></label>
                     <% end %>
                   </div>
@@ -35,7 +35,7 @@
                   <div class="select-options">
                     <% times= ["1","2", "3", "4", "5"] %>
                     <% times.each do |time| %>
-                      <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>">
+                      <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>" required>
                       <label for="time-<%= time %>"><%= time %>限</label>
                     <% end %>
                   </div>
