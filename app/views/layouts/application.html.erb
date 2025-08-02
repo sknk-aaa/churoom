@@ -23,22 +23,24 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to "/search", class: "logo" do %>
-        <%= image_tag "logo.png", alt: "logo" %>
-      <% end %>
-      <ul>
-        <li><%= link_to("検索", home_search_path) %></li>
-        <li><%= link_to("使い方", home_about_path) %></li>
-        <li><%= link_to("お問い合わせ", home_contact_path) %></li>
-      </ul>
-    </header>
+    <div class="wrapper">
+      <header>
+        <%= link_to "/search", class: "logo" do %>
+          <%= image_tag "logo.png", alt: "logo" %>
+        <% end %>
+        <ul>
+          <li><%= link_to("検索", home_search_path) %></li>
+          <li><%= link_to("使い方", home_about_path) %></li>
+          <li><%= link_to("お問い合わせ", home_contact_path) %></li>
+        </ul>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
 
-    <%= yield %>
-
-    <footer>
-      <p>© 2025 chuRoom</p>
-    </footer>
-
+      <footer>
+        <p>© 2025 chuRoom</p>
+      </footer>
+    </div>
   </body>
 </html>

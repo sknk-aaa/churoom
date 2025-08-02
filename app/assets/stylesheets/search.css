@@ -1,9 +1,4 @@
 
-/* メイン部分*/
-main{
-  margin: 0 5%;
-  /* background-color: aquamarine; */
-}
 input[type="radio"][name="mode-select"] {
   display: none;
 }
