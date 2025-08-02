@@ -1,21 +1,35 @@
-<main>
-    <div class=time-table_header>
-        <h1><%= @days_dic[params[:day]] %>曜<%= params[:time] %>限</h1>
-        <h2 class="time-table_title">空き教室一覧</h2>
-    </div>
-    <div class="time-table_body">
-        <div class="building building-5">
-            <h2>5号館</h2>
-            <div class="time-table time-table-5">
-                <p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p>
-                <p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p><p>5号館の空き教室一覧</p>
-            </div>
+
+<div class=time-table_header>
+    <h1><%= @days_dic[@day] %>曜<%= @time %>限</h1>
+    <h2 class="time-table_title">空き教室一覧</h2>
+</div>
+<div class="time-table_body">
+    <div class="building building-5">
+        <h2>5号館</h2>
+        <div class="time-table time-table-5">
+            <%["1", "2", "3", "5"].each do |floor| %>
+                <div class="floor floor-5-<%= floor %>">
+                    <% @available_rooms.each do |room| %>
+                        <% if room[0] == "5" && room[1] == floor %>
+                            <span class="available_room"><%= room %></span>
+                        <% end %>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
-        <div class="building building-6">
-            <h2>6号館</h2>
-            <div class="time-table time-table-6">
-                <p>6号館の空き教室一覧</p>
-            </div>
+    </div>
+    <div class="building building-6">
+        <h2>6号館</h2>
+        <div class="time-table time-table-6">
+            <%["2", "3", "4"].each do |floor| %>
+                <div class="floor floor-6-<%= floor %>">
+                    <% @available_rooms.each do |room| %>
+                        <% if room[0] == "6" && room[1] == floor %>
+                            <span class="available_room"><%= room %></span>
+                        <% end %>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
-</main>
+</div>

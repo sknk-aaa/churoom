@@ -12,5 +12,12 @@
 .time-table {
     width: 80%;
     margin: 0 auto;
-    display:flex;
+
+}
+.available_room{
+    font-size:2rem;
+    padding:2rem 1rem;
+}
+.floor{
+    margin:1.2rem 0;
 }
