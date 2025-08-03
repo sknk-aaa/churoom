@@ -25,13 +25,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <%= link_to home_search_path, class: "logo" do %>
+        <%= link_to search_path, class: "logo" do %>
           <%= image_tag "logo.png", alt: "logo" %>
         <% end %>
         <ul>
-          <li><%= link_to("検索", home_search_path) %></li>
-          <li><%= link_to("使い方", home_about_path) %></li>
-          <li><%= link_to("お問い合わせ", home_contact_path) %></li>
+          <li><%= link_to("検索", search_path) %></li>
+          <li><%= link_to("使い方", about_path) %></li>
+          <li><%= link_to("お問い合わせ", contact_path) %></li>
         </ul>
       </header>
       <main>

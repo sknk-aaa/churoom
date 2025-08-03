@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  root to: "home#search", as: :home_search
-  get "about" => "home#about", as: :home_about
-  get "contact" => "home#contact", as: :home_contact
-  get "filter" => "home#filter", as: :home_filter
+  root to: "searches#index", as: :search
 
-  get "results/room" => "results#room", as: :results_room
-  get "results/:day/:time" => "results#time",  as: :results_time
+  get "filter" => "searches#filter", as: :search_filter
+
+  get "search/room" => "searches#result_room", as: :result_room
+  get "search/time/:day/:time" => "searches#result_time",  as: :result_time
+
+  get "about" => "pages#about", as: :about
+  get "contact" => "pages#contact", as: :contact
 end
