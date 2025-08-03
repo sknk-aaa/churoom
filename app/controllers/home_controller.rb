@@ -1,11 +1,10 @@
 class HomeController < ApplicationController
-  def index # 講義時間内であれば対応したday,timeにリダイレクト、時間外には検索ページにリダイレクト
+  def search # 講義時間内であれば「現在の空き教室はこちら」を表示
     week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-    day=week[Date.today.wday] # 曜日をdayに代入
+    @day=week[Date.today.wday] # 曜日をdayに代入
 
     now = Time.zone.now
-
-    time= case now  # 現在の時限をtimeに代入、講義時間外ならnilを返す
+    @time= case now  # 現在の時限をtimeに代入、講義時間外ならnilを返す
     when Time.zone.now.change(hour: 8,  min: 50, sec: 0)...Time.zone.now.change(hour: 10, min: 40, sec: 0)
             1
     when Time.zone.now.change(hour: 10, min: 40, sec: 0)...Time.zone.now.change(hour: 12, min: 30, sec: 0)
@@ -19,18 +18,10 @@ class HomeController < ApplicationController
     else
             nil
     end
-    if time.present? && day!= "Sun" # 現在の時限がnilなら、検索ページにリダイレクト
-      redirect_to result_time_path(
-        day: day,
-        time: time
-      )
-    else
-      redirect_to home_search_path
-    end
   end
 
   def filter # 検索ページからのフィルター機能
-    redirect_to result_time_path(
+    redirect_to results_time_path(
       day:  params[:day],
       time: params[:time]
     )

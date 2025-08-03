@@ -1,5 +1,5 @@
 require "csv"
-class ResultController < ApplicationController
+class ResultsController < ApplicationController
   CSV_PATH = Rails.root.join("db", "data", "timetable2025.csv")
   def time
     @day = params[:day]
