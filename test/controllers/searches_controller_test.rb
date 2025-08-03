@@ -1,5 +1,5 @@
-# app/controllers/home_controller.rb
-class HomeControllerTest < ActionDispatch::IntegrationTest
+# app/controllers/searches_controller.rb
+class SearchesControllerTest < ActionDispatch::IntegrationTest
   def search
     now = Time.zone.now
     if lecture_time?(now)
@@ -23,5 +23,10 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     when 15..16  then "4"
     else             "0"
     end
+  end
+
+  test "should get time" do
+    get result_time_url(day: "Mon", time: "1")
+    assert_response :success
   end
 end
