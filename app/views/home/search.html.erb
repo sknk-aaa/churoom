@@ -7,32 +7,38 @@
 </div>
 
 <div class="search-time">
-    <%= form_with url: home_filter_path, method: :get, local: true do %>
-      <div class="select day-select">
-          <h2>曜日</h2>
-          <div class="select-options">
-            <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
-            <% days.each do |day| %>
-              <input type="radio" name="day" value="<%= day %>" id="<%= day %>" required>
-              <label for="<%= day %>"><%= @days_dic[day] %></label>
-            <% end %>
-          </div>
-      </div>
+  <%= form_with url: home_filter_path, method: :get, local: true do %>
+    <div class="select day-select">
+        <h2>曜日</h2>
+        <div class="select-options">
+          <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
+          <% days.each do |day| %>
+            <input type="radio" name="day" value="<%= day %>" id="<%= day %>" required>
+            <label for="<%= day %>"><%= @days_dic[day] %></label>
+          <% end %>
+        </div>
+    </div>
 
-      <div class="select time-select">
-          <h2>時間</h2>
-          <div class="select-options">
-            <% times= ["1","2", "3", "4", "5"] %>
-            <% times.each do |time| %>
-              <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>" required>
-              <label for="time-<%= time %>"><%= time %>限</label>
-            <% end %>
-          </div>
+    <div class="select time-select">
+        <h2>時間</h2>
+        <div class="select-options">
+          <% times= ["1","2", "3", "4", "5"] %>
+          <% times.each do |time| %>
+            <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>" required>
+            <label for="time-<%= time %>"><%= time %>限</label>
+          <% end %>
+        </div>
 
-      <div class="search">
-          <input type="submit" value="検索" class="btn btn-search">
-      </div>
-    <% end %>
+    <div class="search">
+        <input type="submit" value="検索" class="btn btn-search">
+    </div>
+  <% end %>
+  
+  <% if @time.present? && @day != "Sun" %>
+    <div class="current-time-info">
+      <%= link_to("現在の空き教室はこちら", results_time_path(day: @day,time: @time), class:"btn btn-current-time") %>
+    </div>
+  <% end %>
 </div>
 
 <div class="search-room">
