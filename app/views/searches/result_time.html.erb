@@ -11,7 +11,7 @@
                 <div class="floor floor-5-<%= floor %>">
                     <% @available_rooms.each do |room| %>
                         <% if room[0] == "5" && room[1] == floor %>
-                            <span class="available_room"><%= room %></span>
+                            <span class="available_room"><%= link_to(room, result_room_path(number: room)) %></span>
                         <% end %>
                     <% end %>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="floor floor-6-<%= floor %>">
                     <% @available_rooms.each do |room| %>
                         <% if room[0] == "6" && room[1] == floor %>
-                            <span class="available_room"><%= room %></span>
+                            <span class="available_room"><%= link_to(room, result_room_path(number: room)) %></span>
                         <% end %>
                     <% end %>
                 </div>
