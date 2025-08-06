@@ -1,13 +1,13 @@
   
 <div class="mode">
-    <input type="radio" name="mode-select" value="mode-time" id="time">
+    <input type="radio" name="mode-select" value="mode-time" id="time" checked>
     <label for="time" class="mode-image"><%= image_tag "time.png", alt: "時間から探す" %></label>
     <input type="radio" name="mode-select" value="mode-room" id="room">
-    <label for="room"><%= image_tag "room.png", alt: "教室から探す" %></label>
+    <label for="room" class="mode-image"><%= image_tag "room.png", alt: "教室から探す" %></label>
 </div>
 
-<div class="search-time">
-  <%= form_with url: search_filter_path, method: :get, local: true do %>
+<div id="mode-time-form" class="search-time">
+  <%= form_with url: search_filter_path, method: :post, local: true do %>
     <div class="select day-select">
         <h2>曜日</h2>
         <div class="select-options">
@@ -28,6 +28,7 @@
             <label for="time-<%= time %>"><%= time %>限</label>
           <% end %>
         </div>
+    </div>
 
     <div class="search">
         <input type="submit" value="検索" class="btn btn-search">
@@ -41,7 +42,31 @@
   <% end %>
 </div>
 
-<div class="search-room">
+<div id="mode-room-form" class="search-room">
+  <h2>5号館</h2>
+  <div class="time-table time-table-5">
+    <%["1", "2", "3", "5"].each do |floor| %>
+      <div class="floor floor-5-<%= floor %>">
+        <% @all_rooms.each do |room| %>
+          <% if room[0] == "5" && room[1] == floor %>
+            <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <h2>6号館</h2>
+  <div class="time-table time-table-6">
+    <%["2", "3", "4"].each do |floor| %>
+      <div class="floor floor-6-<%= floor %>">
+        <% @all_rooms.each do |room| %>
+          <% if room[0] == "6" && room[1] == floor %>
+            <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-    
 

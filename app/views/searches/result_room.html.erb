@@ -1,0 +1,27 @@
+<div class="search_result">
+  <h2><%= @room_number %></h2>
+    <div class="room_timetable">
+        <table class="room_timetable-table">
+            <caption>〇・・・空き<br>
+                ×・・・講義中</caption>
+            <tr>
+                <% ["", "月", "火", "水", "木", "金", "土", "日"].each do |day| %>
+                    <th><%= day %></th>
+                <% end %>
+            </tr>
+            <% [1, 2, 3, 4, 5].each do |time| %>
+                <tr>
+                    <td><%= time %></td>
+                    <% ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].each do |day| %>
+                        <% if @room_data.any? {|row| row[:day] == day && row[:time] == time} %>
+                            <td>×</td>
+                        <% else %>
+                            <td>〇</td>
+                        <% end %>
+                    <% end %>
+                </tr>
+            <% end %>
+        </table>
+
+    </div>
+</div>
