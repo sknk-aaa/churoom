@@ -1,6 +1,8 @@
 body {
   color: #383e45;
   font-family: "Avenir Next";
+  margin:0;
+  padding:0;
 }
 a {
   text-decoration: none;
@@ -18,40 +20,54 @@ img{
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: 	#fafcf7;
 }
+
 /* ヘッダー部分*/
 header{
-  display:flex;
+  display:block;
   justify-content: space-between;
   align-items: center;
-  margin: 0 5%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1;
+  width:100%;
+  height:60px;
+  background-color:#ffffff;
+  border-bottom:#868686 solid 1px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
 }
 header .logo{
+  font-size:2rem;
+  font-weight: bold;
   display: inline-block;
-  width:100px;
+  transition: color 0.1s ease;
+}
+header .logo:hover, header .logo:focus {
+  color: #bdf3ba;
 }
 header ul{
-  display: flex;
-  gap: 1rem;
-  margin-right:1rem;
+  display: none;
 }
-header ul li{
-  font-size:1rem;
+header input[type="radio"][name="mode-select-header"] {
+  display: none;
 }
+
 
 /* メイン部分*/
 main{
-  margin: 0 5%;
   flex: 1 0 auto;
+  margin-top:60px;
 }
 
 /* フッター部分*/
 footer{
+  background-color:white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,4 +75,84 @@ footer{
   width: 100%;
   margin-top: 5rem;
   border-top:#353535 solid 1px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* PC用レスポンシブ */
+@media screen and (min-width: 768px) {
+  body {
+    color: #383e45;
+    font-family: "Avenir Next";
+  }
+  a {
+    text-decoration: none;
+    color:black;
+  }
+  li {
+    list-style: none;
+  }
+  ul{
+    padding: 0;
+  }
+  img{
+    width:100%;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+/* ヘッダー部分*/
+  header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1;
+    width:100%;
+    height:60px;
+    background-color:#ffffff;
+    border-bottom:#868686 solid 1px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
+    height:75px;
+    padding:0 10%;
+  }
+  header .logo{
+    display: inline-block;
+    width:90px;
+  }
+  header ul{
+    display: flex;
+    gap: 1rem;
+    margin-right:1rem;
+  }
+  header ul li{
+    font-size:1rem;
+  }
+  .mode-select-header{
+    display:none;
+  }
+
+  /* メイン部分*/
+  main{
+    padding:0 5%;
+    flex: 1 0 auto;
+    margin-top:75px;
+  }
+
+  /* フッター部分*/
+  footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; 
+    width: 100%;
+    border-top:#353535 solid 1px;
+  }
 }

@@ -22,6 +22,10 @@ class SearchesController < ApplicationController
     else
             nil
     end
+
+    occupied_rows = @table.select { |row| row[:day] == @day && row[:time] == @time }
+    occupied_rooms = occupied_rows.map { |row| row[:number].to_s }
+    @available_rooms = @all_rooms - occupied_rooms
   end
 
   def result_time
