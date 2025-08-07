@@ -26,16 +26,33 @@
     <div class="wrapper">
       <header>
         <%= link_to("chuRoom", search_path, class: "logo") %>
-        <ul class="nav">
+        <ul class="nav-pc">
           <li><%= link_to("検索", search_path) %></li>
           <li><%= link_to("使い方", about_path) %></li>
           <li><%= link_to("お問い合わせ", contact_path) %></li>
         </ul>
-        <div class="mode-select-header">
-          <input type="radio" name="mode-select-header" value="mode-search" id="mode-search" checked>
-          <label for="mode-search" class="mode-search">空き教室検索</label>
-          <input type="radio" name="mode-select-header" value="mode-about" id="mode-about">
-          <label for="mode-about" class="mode-about">使い方</label>
+
+        <div class="nav-mobile">
+          <!-- ハンバーガーボタン -->
+          <button
+            id="hamburger-btn"
+            class="hamburger"
+            aria-label="メニューを開閉"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <!-- モバイル用ナビ -->
+          <nav id="mobile-nav" class="mobile-nav">
+            <ul>
+              <li><%= link_to "空き教室検索", search_path %></li>
+              <li><%= link_to "使い方", about_path %></li>
+              <li><%= link_to "お問い合わせ", contact_path %></li>
+            </ul>
+          </nav>
         </div>
       </header>
       <main>
