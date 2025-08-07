@@ -31,9 +31,28 @@
           <li><%= link_to("使い方", about_path) %></li>
           <li><%= link_to("お問い合わせ", contact_path) %></li>
         </ul>
+
         <div class="nav-mobile">
-          <%= link_to("空き教室検索", search_path, class: "mode-select-header") %>
-          <%= link_to("使い方", about_path, class: "mode-select-header") %>
+          <!-- ハンバーガーボタン -->
+          <button
+            id="hamburger-btn"
+            class="hamburger"
+            aria-label="メニューを開閉"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <!-- モバイル用ナビ -->
+          <nav id="mobile-nav" class="mobile-nav">
+            <ul>
+              <li><%= link_to "空き教室検索", search_path %></li>
+              <li><%= link_to "使い方", about_path %></li>
+              <li><%= link_to "お問い合わせ", contact_path %></li>
+            </ul>
+          </nav>
         </div>
       </header>
       <main>

@@ -1,4 +1,17 @@
 document.addEventListener("turbo:load", () => {
+  // ハンバーガーメニューのトグル
+  const btn = document.getElementById("hamburger-btn");
+  const nav = document.getElementById("mobile-nav");
+  if (!btn || !nav) return;
+
+  btn.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
+    btn.classList.toggle("is-active");
+    nav.classList.toggle("is-open");
+  });
+  // モード切り替えの表示更新
+  // ラジオボタンの切り替えでフォームの表示を更新
   const timeForm = document.getElementById("mode-time-form");
   const roomForm = document.getElementById("mode-room-form");
   const radios   = document.querySelectorAll('input[name="mode-select"]');
