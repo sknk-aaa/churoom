@@ -1,72 +1,91 @@
-  
-<div class="mode">
-    <input type="radio" name="mode-select" value="mode-time" id="time" checked>
-    <label for="time" class="mode-image"><%= image_tag "time.png", alt: "時間から探す" %></label>
-    <input type="radio" name="mode-select" value="mode-room" id="room">
-    <label for="room" class="mode-image"><%= image_tag "room.png", alt: "教室から探す" %></label>
-</div>
+<div class="search-section" id="search-section">
+  <h1>空き教室検索</h1>
+  <div class="mode">
+      <input type="radio" name="mode-select" value="mode-time" id="time" checked>
+      <label for="time" class="mode-image"><%= image_tag "time.png", alt: "時間から探す" %></label>
+      <input type="radio" name="mode-select" value="mode-room" id="room">
+      <label for="room" class="mode-image"><%= image_tag "room.png", alt: "教室から探す" %></label>
+  </div>
 
-<div id="mode-time-form" class="search-time">
-  <%= form_with url: search_filter_path, method: :post, local: true do %>
-    <div class="select day-select">
-        <h2>曜日</h2>
-        <div class="select-options">
-          <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
-          <% days.each do |day| %>
-            <input type="radio" name="day" value="<%= day %>" id="<%= day %>" required>
-            <label for="<%= day %>"><%= @days_dic[day] %></label>
-          <% end %>
-        </div>
-    </div>
+  <div id="mode-time-form" class="search-time">
+    <%= form_with url: search_filter_path, method: :post, local: true do %>
+      <div class="select day-select">
+          <h2>曜日</h2>
+          <div class="select-options">
+            <% days= ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
+            <% days.each do |day| %>
+              <input type="radio" name="day" value="<%= day %>" id="<%= day %>" required>
+              <label for="<%= day %>"><%= @days_dic[day] %></label>
+            <% end %>
+          </div>
+      </div>
 
-    <div class="select time-select">
-        <h2>時間</h2>
-        <div class="select-options">
-          <% times= ["1","2", "3", "4", "5"] %>
-          <% times.each do |time| %>
-            <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>" required>
-            <label for="time-<%= time %>"><%= time %>限</label>
-          <% end %>
-        </div>
-    </div>
+      <div class="select time-select">
+          <h2>時間</h2>
+          <div class="select-options">
+            <% times= ["1","2", "3", "4", "5"] %>
+            <% times.each do |time| %>
+              <input type="radio" name="time" value="<%= time %>" id="time-<%= time %>" required>
+              <label for="time-<%= time %>"><%= time %>限</label>
+            <% end %>
+          </div>
+      </div>
 
-    <div class="search">
-        <input type="submit" value="検索" class="btn btn-search">
-    </div>
-  <% end %>
-  
-  <% if @time.present? && @day != "Sun" %>
-    <div class="current-time-info">
-      <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), class:"btn btn-current-time") %>
-    </div>
-  <% end %>
-</div>
-
-<div id="mode-room-form" class="search-room">
-  <h2>5号館</h2>
-  <div class="time-table time-table-5">
-    <%["1", "2", "3", "5"].each do |floor| %>
-      <div class="floor floor-5-<%= floor %>">
-        <% @all_rooms.each do |room| %>
-          <% if room[0] == "5" && room[1] == floor %>
-            <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
-          <% end %>
-        <% end %>
+      <div class="search">
+          <input type="submit" value="検索" class="btn btn-search">
+      </div>
+    <% end %>
+    
+    <% if @time.present? && @day != "Sun" %>
+      <div class="current-time-info">
+        <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), class:"btn btn-current-time") %>
+      </div>
+    <% end %>
+    <% if @time.present? && @day != "Sun" %>
+      <div class="current-available-rooms">
+        <h2>現在の空き教室はこちら</h2>
+          <%= render template: 'searches/result_time' %>
       </div>
     <% end %>
   </div>
 
-  <h2>6号館</h2>
-  <div class="time-table time-table-6">
-    <%["2", "3", "4"].each do |floor| %>
-      <div class="floor floor-6-<%= floor %>">
-        <% @all_rooms.each do |room| %>
-          <% if room[0] == "6" && room[1] == floor %>
-            <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
+  <div id="mode-room-form" class="search-room">
+    <h2>5号館</h2>
+    <div class="time-table time-table-5">
+      <%["1", "2", "3", "5"].each do |floor| %>
+        <div class="floor floor-5-<%= floor %>">
+          <% @all_rooms.each do |room| %>
+            <% if room[0] == "5" && room[1] == floor %>
+              <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <h2>6号館</h2>
+    <div class="time-table time-table-6">
+      <%["2", "3", "4"].each do |floor| %>
+        <div class="floor floor-6-<%= floor %>">
+          <% @all_rooms.each do |room| %>
+            <% if room[0] == "6" && room[1] == floor %>
+              <span class="all_rooms"><%= link_to(room, result_room_path(number: room)) %></span>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
+<div class="about-section" id="about-section">
+  <h2>空き教室検索について</h2>
+  <p>このページでは、空き教室を曜日と時間から検索できます。5号館と6号館の教室を表示し、各教室の空き状況を確認できます。</p>
+  <p>また、現在の空き教室も確認できる機能があります。</p>
+</div>
+
+<div class="contact-section">
+  <h2>お問い合わせ</h2>
+  <p>空き教室検索に関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
+  <p><%= mail_to "chuInfo@gmail.com" %></p>
+</div>
