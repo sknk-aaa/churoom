@@ -7,6 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <%= yield :head %>
 
@@ -48,9 +49,9 @@
           <!-- モバイル用ナビ -->
           <nav id="mobile-nav" class="mobile-nav">
             <ul>
-              <li><%= link_to "空き教室検索", search_path %></li>
-              <li><%= link_to "使い方", about_path %></li>
-              <li><%= link_to "お問い合わせ", contact_path %></li>
+              <li><%= link_to "空き教室検索", search_path %><i class="fa-solid fa-chevron-right"></i></li>
+              <li><%= link_to "使い方", about_path %><i class="fa-solid fa-chevron-right"></i></li>
+              <li><%= link_to "お問い合わせ", contact_path %><i class="fa-solid fa-chevron-right"></i></li>
             </ul>
           </nav>
         </div>
