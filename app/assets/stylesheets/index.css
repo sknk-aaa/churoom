@@ -32,12 +32,49 @@ input[type="radio"][name="mode-select"]:checked + label {
     width: 90%;
     margin: 0 auto;
   }
-.search-time h2{
-    font-size: 2rem;
+.search-time .time-table_title-index{
+    font-size: 1.75rem;
+    margin-top:3rem;
+    margin-bottom:0.5rem;
+    text-align: center;
+    color:#3b4e63;
   }
+.current-time-index{
+    font-size: 1.5rem;
+    margin-top:0.5rem;
+    margin-bottom:0;
+    text-align: center;
+  }
+.building-index{
+  margin-bottom:0.8rem;
+}
+.building-index h2{
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    margin-left:0.3rem;
+  }
+.available-rooms-index{
+  width:90%;
+  margin: 0 auto;
+}
+.floor-index{
+  margin-bottom:0.5rem;
+}
+.available-rooms-index a{
+  display: inline-block;
+  width: 17%;
+  padding: 0.5rem;
+  margin: 0.2rem 0;
+  background-color: #e0f7fa;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
 .btn-search {
   width: 100%;
-  background-color: #0069d9;
+  background-color: #0250a2;
   color: #fff;
   padding: 0.7rem;
   margin-top:2rem;
@@ -47,7 +84,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   cursor: pointer;
 }
 .btn-search:hover {
-  background-color: #0F2A42;
+  background-color: #10426d;
 }
 .time-select-label, .day-select-label {
   margin-top: 1rem;
@@ -96,6 +133,10 @@ input[type="radio"][name="mode-select"]:checked + label {
 .search_room h2{
     font-size: 2.5rem;
   }
+.time-table-index{
+  border:3px solid #55789C;
+  border-radius: 8px;
+}
 .all_rooms a{
     color:#0069d9;        
     text-decoration: underline;  

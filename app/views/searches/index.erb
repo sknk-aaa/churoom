@@ -46,39 +46,38 @@
     <div class="current-time-info">          <!-- PCでのみ表示 -->
       <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), class:"btn btn-current-time") %>
     </div>
-
     <div class="current-available-rooms-index">    <!-- モバイルでのみ表示 -->
-      <h2>現在の空き教室はこちら</h2>
+      <h2 class="time-table_title-index">現在の空き教室一覧</h2>
       <div class="time-table-index">
         <div class="time-table_header-index">
-          <h1><%= @days_dic[@day] %>曜<%= @time %>限</h1>
+          <h2 class="current-time-index"><%= @days_dic[@day] %>曜<%= @time %>限</h1>
         </div>
         <div class="time-table_body-index">
-            <div class="building-5-index">
+            <div class="building-index">
                 <h2>5号館</h2>
-                <div class="time-table-5-index">
-                    <%["1", "2", "3", "5"].each do |floor| %>
-                        <div class="floor-5-<%= floor %>-index">
-                            <% @available_rooms.each do |room| %>
-                                <% if room[0] == "5" && room[1] == floor %>
-                                    <span class="available_room-index"><%= link_to(room, result_room_path(number: room)) %></span>
-                                <% end %>
-                            <% end %>
-                        </div>
-                    <% end %>
+                <div class="available-rooms-index">
+                  <%["1", "2", "3", "5"].each do |floor| %>
+                    <div class="floor-index">
+                      <% @available_rooms.each do |room| %>
+                          <% if room[0] == "5" && room[1] == floor %>
+                              <span class="available_room-index"><%= link_to(room, result_room_path(number: room)) %></span>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  <% end %>
                 </div>
             </div>
-            <div class="building building-6-index">
+            <div class="building-index">
                 <h2>6号館</h2>
-                <div class="time-table-6-index">
+                <div class="available-rooms-index">
                     <%["2", "3", "4"].each do |floor| %>
-                        <div class="floor-6-<%= floor %>-index">
-                            <% @available_rooms.each do |room| %>
-                                <% if room[0] == "6" && room[1] == floor %>
-                                    <span class="available_room-index"><%= link_to(room, result_room_path(number: room)) %></span>
-                                <% end %>
-                            <% end %>
-                        </div>
+                      <div class="floor-index">
+                          <% @available_rooms.each do |room| %>
+                              <% if room[0] == "6" && room[1] == floor %>
+                                  <span class="available_room-index"><%= link_to(room, result_room_path(number: room)) %></span>
+                              <% end %>
+                          <% end %>
+                      </div>
                     <% end %>
                 </div>
             </div>
