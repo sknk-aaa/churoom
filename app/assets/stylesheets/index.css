@@ -33,7 +33,7 @@ input[type="radio"][name="mode-select"]:checked + label {
     margin: 0 auto;
   }
 .search-time .time-table_title-index{
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-top:3rem;
     margin-bottom:0.5rem;
     text-align: center;
@@ -74,7 +74,7 @@ input[type="radio"][name="mode-select"]:checked + label {
 
 .btn-search {
   width: 100%;
-  background-color: #0250a2;
+  background-color: #F96E1D;
   color: #fff;
   padding: 0.7rem;
   margin-top:2rem;
@@ -84,7 +84,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   cursor: pointer;
 }
 .btn-search:hover {
-  background-color: #10426d;
+  background-color: #b94400;
 }
 .time-select-label, .day-select-label {
   margin-top: 1rem;
@@ -136,6 +136,7 @@ input[type="radio"][name="mode-select"]:checked + label {
 .time-table-index{
   border:3px solid #55789C;
   border-radius: 8px;
+  margin-bottom:2rem;
 }
 .all_rooms a{
     color:#0069d9;        
@@ -153,6 +154,37 @@ input[type="radio"][name="mode-select"]:checked + label {
   }
 .contact-section {
   display: block;
+}
+
+/* 問い合わせセクション */
+.contact-index{
+  border-top:2px solid #21578e;
+  margin-top:3rem;
+  text-align: center;
+  background-color: #2a5d87;
+  color: #ffffff;
+}
+.contact-index h2{
+  border-bottom: 2px solid #b1e2eb;
+  display:inline;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+.contact-content{
+  width:90%;
+  margin: 0 auto;
+  padding-bottom:2rem;
+}
+.contact-content a{
+  display:inline-block;
+  text-align:center;
+  width: auto;  
+  background-color: #ffffff;
+  color:#143658;
+  border: 2px solid #81A9CE;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  font-size:1.1rem;
 }
 
 /* PC用レスポンシブ*/
