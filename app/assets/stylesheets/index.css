@@ -1,29 +1,28 @@
-
-input[type="radio"][name="mode-select"] {
-    display: none;
-  } 
-input[type="radio"] + label img {
-    border-radius: 10px;
-  }
-input[type="radio"]:checked + label img {
-    border: 2px solid #85ff7e;
-  }
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + label {
+  background-color: #0069d9;
+  color:white;
+}
 .mode{
     display:flex;
+    width:80%;
+    margin: 0 auto;
+    margin-top:1rem;
     justify-content: center;
-    gap: 5%;
+    border-radius: 999px;
+    border:2px solid #0069d9;
+    overflow: hidden;     
   }
 .mode label{
-    display: inline-block;
-    padding:0;
+    flex: 1; 
+    text-align: center;
+    width:100%;
+    padding:1rem 0;
     margin:0;
-    line-height: 0;
     cursor: pointer;
-  }
-
-.mode img{
-    display: block;
-    width:100px;
+    
   }
 .search-time{
     width:90%;
