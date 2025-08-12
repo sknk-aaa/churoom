@@ -1,4 +1,4 @@
-
+<!--モード選択セクション -->
 <div class="mode" id="search-mode">
     <input type="radio" name="mode-select" value="mode-time" id="time" checked>
     <label for="time" class="mode-name">時間から探す</label>
@@ -6,7 +6,9 @@
     <label for="room" class="mode-name">教室から探す</label>
 </div>
 
+<!--時間から探すセクション -->
 <div id="mode-time-form" class="search-time">
+  <p>「時間から探す」モードでは、曜日と時限を選択して空き教室を検索できます。</p>
   <%= form_with url: search_filter_path, method: :post, local: true do %>
     <div class="select day-select">
       <label for="day-select" class="day-select-label">曜日</label>
@@ -16,7 +18,7 @@
             <option value="Mon">月曜</option>
             <option value="Tue">火曜</option>
             <option value="Wed">水曜</option>
-            <option value="Thr">木曜</option>
+            <option value="Thu">木曜</option>
             <option value="Fri">金曜</option>
             <option value="Sat">土曜</option>
           </select>
@@ -41,7 +43,8 @@
         <input type="submit" value="検索" class="btn btn-search">
     </div>
   <% end %>
-  
+
+<!--「現在の空き教室はこちら」セクション -->
   <% if @time.present? && @day != "Sun" %>
     <div class="current-time-info">          <!-- PCでのみ表示 -->
       <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), class:"btn btn-current-time") %>
@@ -87,7 +90,10 @@
   <% end %>
 </div>
 
+<!--教室から探すセクション -->
+
 <div id="mode-room-form" class="search-room">
+  <p>「教室から探す」モードでは、教室を選択することで時間割表を確認することができます。</p>
   <h2>5号館</h2>
   <div class="time-table time-table-5">
     <%["1", "2", "3", "5"].each do |floor| %>
@@ -114,6 +120,9 @@
     <% end %>
   </div>
 </div>
+
+
+<!--お問い合わせセクション -->
 
 <section class="contact-index" id="contact">
   <div class="contact-content">

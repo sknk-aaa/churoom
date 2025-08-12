@@ -1,8 +1,9 @@
+/* モード選択セクション */
 input[type="radio"][name="mode-select"] {
   display: none;
 }
 input[type="radio"][name="mode-select"]:checked + label {
-  background-color: #0069d9;
+  background-color: #0046FF;
   color:white;
 }
 .mode{
@@ -22,22 +23,104 @@ input[type="radio"][name="mode-select"]:checked + label {
     padding:1rem 0;
     margin:0;
     cursor: pointer;
-    
   }
+
+
+/* 時間から探すセクション */
 .search-time{
     width:90%;
     margin: 0 auto;
   }
+.search-time p{
+  font-size: 1.1rem;
+  color: #143658; 
+  margin-top: 2rem;
+  text-align: center;
+}
+.btn-search {
+  width: 100%;
+  background-color: #F96E1D;
+  color: #fff;
+  padding: 0.7rem;
+  margin-top:3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-search:hover {
+  background-color: #b94400;
+}
+.time-select-label, .day-select-label {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #143658; 
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.select-options select {
+  width: 100%;
+  padding: 1rem 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #5194d7; 
+  border-radius: 8px;
+  background-color: #fff;
+  color: #143658; 
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%2355789C' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1rem;
+}
+.select-options select:focus {
+  outline: none;
+  border-color: #81A9CE; 
+  box-shadow: 0 0 0 1px rgba(129, 169, 206, 0.3);
+}
+.select-options, .search{
+    text-align: center;
+  }
+
+/* 教室から探すセクション */
 .search-room{
     width: 90%;
     margin: 0 auto;
+ }
+.search-room p{
+  font-size: 1.1rem;
+  color: #143658; 
+  margin-top: 2rem;
+  text-align: center;
+}
+.search_room h2{
+    font-size: 1.5rem;
+}
+.floor a{
+    display: inline-block;
+    color:#0069d9;        
+    text-decoration: underline;  
+    padding:0 0.5rem;
+    font-size:1.5rem;
+    font-weight: bold;          
+    cursor: pointer;   
   }
+.search-time, .search-room {  
+    display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
+  }
+
+/* 現在の空き教室セクション（モバイルのみ） */
+.time-table-index{
+  border:3px solid #5194d7; 
+  border-radius: 8px;
+  margin-bottom:2rem;
+}
 .search-time .time-table_title-index{
     font-size: 1.5rem;
     margin-top:3rem;
     margin-bottom:0.5rem;
     text-align: center;
-    color:#3b4e63;
+    color:#001120;
   }
 .current-time-index{
     font-size: 1.5rem;
@@ -45,6 +128,9 @@ input[type="radio"][name="mode-select"]:checked + label {
     margin-bottom:0;
     text-align: center;
   }
+.current-time-index h2{
+  color:#001120;
+}
 .building-index{
   margin-bottom:0.8rem;
 }
@@ -72,96 +158,12 @@ input[type="radio"][name="mode-select"]:checked + label {
   font-size: 1.1rem;
 }
 
-.btn-search {
-  width: 100%;
-  background-color: #F96E1D;
-  color: #fff;
-  padding: 0.7rem;
-  margin-top:2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-.btn-search:hover {
-  background-color: #b94400;
-}
-.time-select-label, .day-select-label {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #143658; 
-  margin-bottom: 0.3rem;
-  display: block;
-}
-
-.select-options select {
-  width: 100%;
-  padding: 1rem 0.8rem;
-  font-size: 1rem;
-  border: 2px solid #55789C; 
-  border-radius: 8px;
-  background-color: #fff;
-  color: #143658; 
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg fill='%2355789C' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.8rem center;
-  background-size: 1rem;
-}
-.select-options select:focus {
-  outline: none;
-  border-color: #81A9CE; 
-  box-shadow: 0 0 0 1px rgba(129, 169, 206, 0.3);
-}
-.select-options, .search{
-    text-align: center;
-  }
-.current-time-info{
-    text-align: center;
-    margin-top: 3rem;
-  }
-.btn-current-time{
-    display:inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: #00bfff;
-    color: white;
-    border-radius: 6px;
-    font-size: 1.5rem;
-    text-decoration: none;
-  }
-.search_room h2{
-    font-size: 2.5rem;
-  }
-.time-table-index{
-  border:3px solid #55789C;
-  border-radius: 8px;
-  margin-bottom:2rem;
-}
-.all_rooms a{
-    color:#0069d9;        
-    text-decoration: underline;  
-    padding:0 0.5rem;
-    font-size:1.5rem;
-    font-weight: bold;          
-    cursor: pointer;   
-  }
-.search-time, .search-room {
-    display: none;
-  }
-.current-time-info{
-    display: none;
-  }
-.contact-section {
-  display: block;
-}
-
 /* 問い合わせセクション */
 .contact-index{
   border-top:2px solid #21578e;
   margin-top:3rem;
   text-align: center;
-  background-color: #2a5d87;
+  background-color: #0069d9;
   color: #ffffff;
 }
 .contact-index h2{
@@ -186,6 +188,23 @@ input[type="radio"][name="mode-select"]:checked + label {
   border-radius: 6px;
   font-size:1.1rem;
 }
+
+/* 「現在の空き教室はこちら」セクション（PCのみ） */
+.current-time-info{
+    display: none;
+    text-align: center;
+    margin-top: 3rem;
+  }
+.btn-current-time{
+    display:inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #00bfff;
+    color: white;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
 
 /* PC用レスポンシブ*/
 @media screen and (min-width: 768px) {
