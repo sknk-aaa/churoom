@@ -10,6 +10,12 @@ document.addEventListener("turbo:load", () => {
     btn.classList.toggle("is-active");
     nav.classList.toggle("is-open");
   });
+  nav.addEventListener("click", () => {
+    nav.classList.remove("is-open");
+    btn.classList.remove("is-active"); 
+    btn.setAttribute("aria-expanded", "false");
+  });
+
   // モード切り替えの表示更新
   // ラジオボタンの切り替えでフォームの表示を更新
   const timeForm = document.getElementById("mode-time-form");
