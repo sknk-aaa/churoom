@@ -30,7 +30,7 @@
         <ul class="nav-pc">
           <li><%= link_to("検索", search_path) %></li>
           <li><%= link_to("使い方", about_path) %></li>
-          <li><%= link_to("お問い合わせ", contact_path) %></li>
+          <li><%= link_to("お問い合わせ", contact_new_path) %></li>
         </ul>
 
         <div class="nav-mobile">
@@ -51,7 +51,7 @@
             <ul>
               <li><%= link_to "空き教室検索", search_path(anchor: "search-mode") %><i class="fa-solid fa-chevron-right"></i></li>
               <li><%= link_to "使い方", about_path %><i class="fa-solid fa-chevron-right"></i></li>
-              <li><%= link_to "お問い合わせ", search_path(anchor: "contact") %><i class="fa-solid fa-chevron-right"></i></li>
+              <li><%= link_to "お問い合わせ", contact_new_path %><i class="fa-solid fa-chevron-right"></i></li>
             </ul>
           </nav>
         </div>

@@ -1,0 +1,166 @@
+/*newビュー*/
+/* --- 全体セクション --- */
+.section-contact {
+  padding: 1rem;
+  background-color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-contact h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-contact p {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* --- フォーム枠 --- */
+.contact-form {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* --- エラー表示 --- */
+.form-errors {
+  background: #ffe6e6;
+  color: #b30000;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+/* --- フィールド共通 --- */
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* --- 送信ボタン --- */
+.actions {
+  text-align: center;
+}
+
+.actions .btn {
+  display: inline-block;
+  background: #F96E1D;
+  color: #fff;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.actions .btn:hover {
+  background: #b94400;
+}
+@media (min-width: 481px) {
+  .section-contact h1 {
+    font-size: 1.4rem;
+  }
+
+  .section-contact p {
+    font-size: 0.9rem;
+  }
+
+  .actions .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    width: auto;
+  }
+}
+
+/* ==============================
+   お問い合わせサンクス画面
+   ============================== */
+
+/* --- 全体セクション --- */
+.section-thanks {
+  padding: 2rem 1rem;
+  background-color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-thanks h1 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.section-thanks p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* --- ボタン --- */
+.section-thanks .btn {
+  display: inline-block;
+  background: #F96E1D;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.section-thanks .btn:hover {
+  background: #b94400;
+}
+
+/* ==============================
+   タブレット・PC向け調整
+   ============================== */
+@media (min-width: 481px) {
+  .section-thanks h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-thanks p {
+    font-size: 1rem;
+  }
+
+  .section-thanks .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
