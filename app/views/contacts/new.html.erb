@@ -1,0 +1,41 @@
+<section class="section-contact">
+    <h1>お問い合わせフォーム</h1>
+    <p>ご意見・ご要望などがございましたら、以下のフォームからお問い合わせください。</p>
+    <div class="contact-form">
+        <%= form_with model: @form, url: contact_path, local: true do |f| %>
+            <% if @form.errors.any? %>
+                <div class="form-errors">
+                    <p>入力内容に誤りがあります。</p>
+                    <ul>
+                        <% @form.errors.full_messages.each do |m| %>
+                            <li><%= m %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <div class="field">
+                <%= f.label :name, "お名前" %>
+                <%= f.text_field :name, required: true %>
+            </div>
+
+            <div class="field">
+                <%= f.label :email, "メールアドレス" %>
+                <%= f.email_field :email, required: true %>
+            </div>
+
+            <div class="field">
+                <%= f.label :subject, "件名" %>
+                <%= f.text_field :subject, placeholder: "不具合報告 / ご要望 など" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :message, "内容" %>
+                <%= f.text_area :message, rows: 6, required: true %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "送信", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</section>

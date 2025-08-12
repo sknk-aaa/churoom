@@ -1,85 +1,277 @@
-
+/* モード選択セクション */
 input[type="radio"][name="mode-select"] {
   display: none;
 }
-
-input[type="radio"] + label img {
-  border-radius: 10px;
-}
-
-input[type="radio"]:checked + label img {
-  border: 2px solid #85ff7e;
+input[type="radio"][name="mode-select"]:checked + label {
+  background-color: #0046FF;
+  color:white;
 }
 .mode{
-  display:flex;
-  justify-content: center;
-  gap: 5%;
-}
+    display:flex;
+    width:80%;
+    margin: 0 auto;
+    margin-top:1rem;
+    justify-content: center;
+    border-radius: 999px;
+    border:2px solid #0069d9;
+    overflow: hidden;     
+  }
 .mode label{
-  display: inline-block;
-  padding:0;
-  margin:0;
-  line-height: 0;
-  cursor: pointer;
-}
-.mode img{
-  display: block;
-  width:200px;
-}
+    flex: 1; 
+    text-align: center;
+    width:100%;
+    padding:1rem 0;
+    margin:0;
+    cursor: pointer;
+  }
 
+
+/* 時間から探すセクション */
 .search-time{
-  width:40%;
-  margin: 0 auto;
+    width:90%;
+    margin: 0 auto;
+  }
+.search-time p{
+  font-size: 1.1rem;
+  color: #143658; 
+  margin-top: 2rem;
+  text-align: center;
 }
-.search-room{
-  width: 50%;
-  margin: 0 auto;
-}
-.search-time h2{
-  font-size: 2rem;
-}
-input[type="radio"][name="day"]  + label,
-input[type="radio"][name="time"] + label{
-  font-size:1.5rem;
-  margin-right: 0.5rem;
-}
-.btn-search{
-  display: inline-block;
-  margin-top:1rem;
-  background-color: rgb(255, 244, 127);
-  border-radius: 6px;
+.btn-search {
+  width: 100%;
+  background-color: #F96E1D;
+  color: #fff;
+  padding: 0.7rem;
+  margin-top:3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size:2.5rem;
-  margin-top: 3rem;
+}
+.btn-search:hover {
+  background-color: #b94400;
+}
+.time-select-label, .day-select-label {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #143658; 
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.select-options select {
+  width: 100%;
+  padding: 1rem 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #5194d7; 
+  border-radius: 8px;
+  background-color: #fff;
+  color: #143658; 
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%2355789C' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1rem;
+}
+.select-options select:focus {
+  outline: none;
+  border-color: #81A9CE; 
+  box-shadow: 0 0 0 1px rgba(129, 169, 206, 0.3);
 }
 .select-options, .search{
-  text-align: center;
-}
-.current-time-info{
-  text-align: center;
-  margin-top: 3rem;
-}
-.btn-current-time{
-  display:inline-block;
-  padding: 0.5rem 1.5rem;
-  background-color: #00bfff;
-  color: white;
-  border-radius: 6px;
-  font-size: 1.5rem;
-  text-decoration: none;
+    text-align: center;
+  }
 
+/* 教室から探すセクション */
+.search-room{
+    width: 90%;
+    margin: 0 auto;
+ }
+.search-room p{
+  font-size: 1.1rem;
+  color: #143658; 
+  margin-top: 2rem;
+  text-align: center;
 }
 .search_room h2{
-  font-size: 2.5rem;
+    font-size: 1.5rem;
 }
-.all_rooms a{
-  color:#0069d9;        
-  text-decoration: underline;  
-  padding:0 0.5rem;
-  font-size:1.5rem;
-  font-weight: bold;          
-  cursor: pointer;   
+.floor a{
+    display: inline-block;
+    color:#0069d9;        
+    text-decoration: underline;  
+    padding:0 0.5rem;
+    font-size:1.5rem;
+    font-weight: bold;          
+    cursor: pointer;   
+  }
+.search-time, .search-room {  
+    display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
+  }
+
+/* 現在の空き教室セクション（モバイルのみ） */
+.time-table-index{
+  border:3px solid #5194d7; 
+  border-radius: 8px;
+  margin-bottom:2rem;
 }
-#mode-room-form, #mode-time-form {
-  display: none;
+.search-time .time-table_title-index{
+    font-size: 1.5rem;
+    margin-top:3rem;
+    margin-bottom:0.5rem;
+    text-align: center;
+    color:#001120;
+  }
+.current-time-index{
+    font-size: 1.5rem;
+    margin-top:0.5rem;
+    margin-bottom:0;
+    text-align: center;
+  }
+.current-time-index h2{
+  color:#001120;
+}
+.building-index{
+  margin-bottom:0.8rem;
+}
+.building-index h2{
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    margin-left:0.3rem;
+  }
+.available-rooms-index{
+  width:90%;
+  margin: 0 auto;
+}
+.floor-index{
+  margin-bottom:0.5rem;
+}
+.available-rooms-index a{
+  display: inline-block;
+  width: 17%;
+  padding: 0.5rem;
+  margin: 0.2rem 0;
+  background-color: #e0f7fa;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* 問い合わせセクション */
+.contact-index{
+  margin-top:3rem;
+  text-align: center;
+  background-color: rgb(219, 238, 255);
+  color: black;
+}
+.contact-index h2{
+  border-bottom: 2px solid #b1e2eb;
+  display:inline;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+.contact-content{
+  width:90%;
+  margin: 0 auto;
+  padding-bottom:2rem;
+}
+.contact-content a{
+  display:inline-block;
+  text-align:center;
+  width: auto;  
+  background-color: #ffffff;
+  color:#143658;
+  border: 2px solid #81A9CE;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  font-size:1.1rem;
+}
+
+/* 「現在の空き教室はこちら」セクション（PCのみ） */
+.current-time-info{
+    display: none;
+    text-align: center;
+    margin-top: 3rem;
+  }
+.btn-current-time{
+    display:inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #00bfff;
+    color: white;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+
+/* PC用レスポンシブ*/
+@media screen and (min-width: 768px) {
+  .mode img{
+    display: block;
+    width:200px;
+  }
+  .search-time{
+    width:40%;
+    margin: 0 auto;
+  }
+  .search-room{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .search-time h2{
+    font-size: 2rem;
+  }
+  input[type="radio"][name="day"]  + label,
+  input[type="radio"][name="time"] + label{
+    font-size:1.5rem;
+    margin-right: 0.5rem;
+  }
+  .btn-search{
+    display: inline-block;
+    margin-top:1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:2.5rem;
+    margin-top: 3rem;
+  }
+  .select-options, .search{
+    text-align: center;
+  }
+  .current-time-info{
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .btn-current-time{
+    display:inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #00bfff;
+    color: white;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  .search_room h2{
+    font-size: 2.5rem;
+  }
+  .all_rooms a{
+    color:#0069d9;        
+    text-decoration: underline;  
+    padding:0 0.5rem;
+    font-size:1.5rem;
+    font-weight: bold;          
+    cursor: pointer;   
+  }
+  .current-time-info{
+    display: block;
+  }
+  .current-available-rooms-index {
+    display:none;
+  }
+  .search-time, .search-room {
+    display: none;
+  }
+  .contact-section {
+    display: none;
+  }
 }
