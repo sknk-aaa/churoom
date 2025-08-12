@@ -1,8 +1,132 @@
+<div id="about" class="about">
+  <!-- ===== ページ見出し & 目次（アンカーリンク） ===================== -->
+  <section class="about__hero">
+    <h1 class="about__title">このサイトについて</h1>
+    <p class="about__lead">
+      中央大学後楽園キャンパスの<strong>空き教室</strong>を手早く調べられる、学生向けの非公式ツールです。
+    </p>
 
-<h1>使い方</h1>
-<p>このサイトでは、空き教室を簡単に検索できます。</p>
-<h2>検索方法</h2>
-<p>トップページから、時間や教室を選択して検索してください。</p>
-<h2>お問い合わせ</h2>
-<p>ご不明点があれば、お問い合わせページからご連絡ください。</p>
+    <!-- 目次：主要セクションへのショートカット -->
+    <nav aria-label="ページ内ナビゲーション" class="about__toc">
+      <ul>
+        <li><a href="#purpose">1. サイトの目的と背景</a></li>
+        <li><a href="#features">2. 主な機能</a></li>
+        <li><a href="#howto">3. 使い方</a></li>
+        <li><a href="#notice">4. 利用上の注意</a></li>
+        <li><a href="#developer">5. 開発者情報</a></li>
+        <li><a href="#roadmap">6. 今後の予定（任意）</a></li>
+        <li><a href="#disclaimer">7. 免責事項</a></li>
+      </ul>
+    </nav>
+  </section>
 
+  <!-- ===== 1. サイトの目的と背景 ===================================== -->
+  <section id="purpose" class="about__section">
+    <h2 class="about__section-title">1. サイトの目的と背景</h2>
+    <p class="about__text">
+      「中央大学後楽園キャンパスの空き教室を簡単に調べられるようにする」ことを目的に作成しました。
+      授業間の自習や打合せの場所探しを、よりスムーズにすることを目指しています。
+    </p>
+  </section>
+
+  <!-- ===== 2. 主な機能 =============================================== -->
+  <section id="features" class="about__section">
+    <h2 class="about__section-title">2. 主な機能</h2>
+
+    <!-- 機能のカードリスト -->
+    <ul class="feature-list">
+      <li class="feature-card">
+        <h3 class="feature-card__title">時間から探す</h3>
+        <p class="feature-card__desc">
+          曜日と時限を選ぶだけで、<strong>空いている教室一覧</strong>を表示します。
+        </p>
+      </li>
+      <li class="feature-card">
+        <h3 class="feature-card__title">教室から探す</h3>
+        <p class="feature-card__desc">
+          教室番号を選ぶと、その教室の<strong>空き時間（時間割形式）</strong>を確認できます。
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== 3. 使い方 ================================================= -->
+  <section id="howto" class="about__section">
+    <h2 class="about__section-title">3. 使い方</h2>
+
+    <!-- シンプルな手順（OL） -->
+    <ol class="steps">
+      <li>
+        トップページで <em>「時間から探す」</em> または
+        <em>「教室から探す」</em> を選択します。
+      </li>
+      <li>
+        条件（曜日・時限、または教室番号）を指定して検索します。
+      </li>
+      <li>
+        表示された結果から、目的に合う教室を選びます。
+      </li>
+    </ol>
+
+    <!-- 小さな注意書き（UI部品） -->
+    <div class="note" role="note" aria-label="注意">
+      <p class="note__text">
+        検索結果は<strong>参考情報</strong>です。実際の教室利用状況は変更される場合があります。
+        直前の空き状況は、掲示や教務情報も併せてご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 4. 利用上の注意 =========================================== -->
+  <section id="notice" class="about__section">
+    <h2 class="about__section-title">4. 利用上の注意</h2>
+
+    <!-- 定義リストで「項目 : 説明」を整理 -->
+    <dl class="keypoints">
+      <dt>データ更新頻度</dt>
+      <dd>時間割データの反映は<strong>年1回</strong>（学年初めを目安）。臨時の変更は反映されない場合があります。</dd>
+
+      <dt>正確性</dt>
+      <dd>本サイトは<strong>非公式</strong>の参考サービスです。最新・正確な情報は大学の公式情報をご確認ください。</dd>
+
+      <dt>利用範囲</dt>
+      <dd>個人の学習・ゼミ活動等での利用を想定しています。大人数イベントなどの予約用途には向きません。</dd>
+    </dl>
+  </section>
+
+  <!-- ===== 5. 開発者情報 ============================================= -->
+  <section id="developer" class="about__section">
+    <h2 class="about__section-title">5. 開発者情報</h2>
+    <ul class="link-list">
+      <li>
+        <span class="link-list__label">Qiita：</span>
+        <a href="https://qiita.com/online-aaa" target="_blank" rel="noopener noreferrer">qiita.com/online-aaa</a>
+      </li>
+      <li>
+        <span class="link-list__label">X：</span>
+        <a href="https://x.com/online443722" target="_blank" rel="noopener noreferrer">@online443722</a>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ===== 6. 今後の予定（任意） ===================================== -->
+  <section id="roadmap" class="about__section">
+    <h2 class="about__section-title">6. 今後の予定（任意）</h2>
+    <ul class="roadmap">
+      <li>🔍 検索条件の保存（前回の選択を自動復元）</li>
+      <li>📅 祝日・行事による特別時間割への対応</li>
+      <li>⚙️ パフォーマンス改善とアクセシビリティ向上</li>
+    </ul>
+    <p class="about__muted">最終更新：2025-08-13</p>
+  </section>
+
+  <!-- ===== 7. 免責事項 =============================================== -->
+  <section id="disclaimer" class="about__section">
+    <h2 class="about__section-title">7. 免責事項</h2>
+    <p class="about__text small">
+      本サイトは大学の<strong>非公式</strong>サービスであり、大学や第三者の問い合わせ窓口ではありません。
+      本サイトの利用によって生じたいかなる損害についても、開発者は責任を負いません。
+    </p>
+  </section>
+</div>

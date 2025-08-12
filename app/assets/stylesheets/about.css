@@ -1,0 +1,205 @@
+/* ----- ベース（タイポグラフィ／色） ------------------- */
+:root {
+  --about-bg: #ffffff;
+  --about-fg: #143658;
+  --about-muted: #5a6a7a;
+  --about-border: #e6eef5;
+  --about-accent: #0b63ce;
+  --about-note-bg: #f3f8ff;
+}
+
+#about {
+  background: var(--about-bg);
+  color: var(--about-fg);
+  line-height: 1.75;
+  font-size: 16px;          /* モバイルの読みやすさ優先 */
+  padding: 1rem 1rem 2rem;  /* ヘッダー/フッターは別レイアウト */
+  max-width: 960px;         /* 中央寄せレイアウト用（上位で margin 指定可） */
+  margin-inline: auto;
+}
+
+.about__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.about__lead {
+  color: var(--about-muted);
+  margin: 0 0 1rem;
+}
+
+.about__muted {
+  color: var(--about-muted);
+  font-size: 0.875rem;
+}
+
+/* ----- 目次（ページ内ナビ） ---------------------------- */
+.about__toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.about__toc a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--about-border);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--about-accent);
+  font-size: 0.875rem;
+  background: #fff;
+}
+
+.about__toc a:focus,
+.about__toc a:hover {
+  outline: none;
+  border-color: var(--about-accent);
+}
+
+/* ----- セクション共通 ---------------------------------- */
+.about__section {
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--about-border);
+}
+
+.about__section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.about__text {
+  margin: 0.25rem 0 0.75rem;
+}
+
+.about__text.small {
+  font-size: 0.9rem;
+}
+
+/* ----- 機能カード -------------------------------------- */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.feature-card {
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  background: #fff;
+}
+
+.feature-card__title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.feature-card__desc {
+  margin: 0;
+  color: var(--about-muted);
+}
+
+/* ----- 使い方（手順） ---------------------------------- */
+.steps {
+  padding-left: 1.25rem; /* デフォルトより少しだけ内側に */
+  margin: 0;
+}
+
+.steps li + li {
+  margin-top: 0.5rem;
+}
+
+/* ----- 注意書き ---------------------------------------- */
+.note {
+  margin-top: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--about-note-bg);
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+}
+
+.note__text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ----- 利用上の注意：定義リスト ------------------------ */
+.keypoints {
+  margin: 0;
+}
+
+.keypoints dt {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.keypoints dd {
+  margin: 0.25rem 0 0.75rem 0;
+  color: var(--about-muted);
+}
+
+/* ----- リンクリスト（開発者情報） ---------------------- */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.link-list__label {
+  display: inline-block;
+  min-width: 7rem; /* ラベル幅を揃えて可読性UP */
+  color: var(--about-muted);
+}
+
+/* ----- ロードマップ ------------------------------------ */
+.roadmap {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 0.5rem;
+}
+
+.roadmap li + li {
+  margin-top: 0.25rem;
+}
+
+/* =========================================================
+  レスポンシブ（タブレット以上）
+========================================================= */
+@media (min-width: 768px) {
+  .about__title {
+    font-size: 1.9rem;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .link-list {
+    grid-template-columns: 1fr 1fr; /* 情報を2列で整理 */
+  }
+}
+
+/* =========================================================
+  レスポンシブ（デスクトップ）
+========================================================= */
+@media (min-width: 1024px) {
+  #about {
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+
+  .about__section {
+    padding-block: 1.75rem;
+  }
+}
