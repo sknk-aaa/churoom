@@ -61,23 +61,15 @@
       </main>
 
       <footer>
-        <%= link_to("このサイトについて", about_path, class:"about-footer") %>
         <ul class="footer-nav">
-          <li class="qiita">
-            <a class="contact-link" href="https://qiita.com/online-aaa" target="_blank" rel="noopener noreferrer">
-              <span class="icon">
-                <%= image_tag "icon-qiita.png", alt: "Qiita" %>
-              </span>
-              <span class="label">Qiita</span>
-            </a>
+          <li class="about-footer">
+            <%= link_to("このサイトについて", about_path) %>
           </li>
-          <li class="x">
-            <a class="contact-link" href="https://x.com/online443722" target="_blank" rel="noopener noreferrer">
-              <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
-              <span class="label">X</span>
-            </a>
+          <li class="contact-footer">
+            <%= link_to("お問い合わせ", contact_new_path) %>
           </li>
         </ul>
+        <%= link_to("chuRoom", search_path, class: "logo-footer") %>
         <p>© 2025 chuRoom</p>
       </footer>
     </div>
