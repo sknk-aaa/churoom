@@ -1,9 +1,11 @@
 <div class="search_result">
-  <h2><%= @room_number %></h2>
+  <h2><%= @room_number %>教室 利用状況</h2>
     <div class="room_timetable">
         <table class="room_timetable-table">
-            <caption>〇・・・空き<br>
-                ×・・・講義中</caption>
+            <caption>
+                〇・・・空き<br>
+                ×・・・講義中
+            </caption>
             <tr>
                 <% ["", "月", "火", "水", "木", "金", "土", "日"].each do |day| %>
                     <th><%= day %></th>
@@ -22,6 +24,11 @@
                 </tr>
             <% end %>
         </table>
-
+    </div>
+    <div class="search_result_desc">
+        <p>
+         <%= @room_number %> 教室の利用状況を表示しています。<br>
+        休講や補講、学内イベント等により、実際の利用状況が表示内容と異なる場合があります。
+        </p>
     </div>
 </div>
