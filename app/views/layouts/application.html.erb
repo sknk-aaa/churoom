@@ -49,9 +49,9 @@
           <!-- モバイル用ナビ -->
           <nav id="mobile-nav" class="mobile-nav">
             <ul>
-              <li><%= link_to "空き教室検索", search_path %><i class="fa-solid fa-chevron-right"></i></li>
+              <li><%= link_to "空き教室検索", search_path(anchor: "search-mode") %><i class="fa-solid fa-chevron-right"></i></li>
               <li><%= link_to "使い方", about_path %><i class="fa-solid fa-chevron-right"></i></li>
-              <li><%= link_to "お問い合わせ", contact_path %><i class="fa-solid fa-chevron-right"></i></li>
+              <li><%= link_to "お問い合わせ", search_path(anchor: "contact") %><i class="fa-solid fa-chevron-right"></i></li>
             </ul>
           </nav>
         </div>
@@ -61,6 +61,23 @@
       </main>
 
       <footer>
+        <%= link_to("このサイトについて", about_path, class:"about-footer") %>
+        <ul class="footer-nav">
+          <li class="qiita">
+            <a class="contact-link" href="https://qiita.com/online-aaa" target="_blank" rel="noopener noreferrer">
+              <span class="icon">
+                <%= image_tag "icon-qiita.png", alt: "Qiita" %>
+              </span>
+              <span class="label">Qiita</span>
+            </a>
+          </li>
+          <li class="x">
+            <a class="contact-link" href="https://x.com/online443722" target="_blank" rel="noopener noreferrer">
+              <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
+              <span class="label">X</span>
+            </a>
+          </li>
+        </ul>
         <p>© 2025 chuRoom</p>
       </footer>
     </div>
