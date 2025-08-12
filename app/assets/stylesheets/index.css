@@ -160,11 +160,10 @@ input[type="radio"][name="mode-select"]:checked + label {
 
 /* 問い合わせセクション */
 .contact-index{
-  border-top:2px solid #21578e;
   margin-top:3rem;
   text-align: center;
-  background-color: #0069d9;
-  color: #ffffff;
+  background-color: rgb(219, 238, 255);
+  color: black;
 }
 .contact-index h2{
   border-bottom: 2px solid #b1e2eb;

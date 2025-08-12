@@ -1,0 +1,30 @@
+.search_result{
+    margin: 0 auto;
+    width:90%;
+    text-align: center;
+}
+.room_timetable{
+    margin-top: 2rem;
+}
+.room_timetable-table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #333;
+  padding: 0.7rem;
+}
+caption{
+    caption-side: bottom;
+    text-align:center;
+    margin:0 auto;
+    width:70%;
+    margin-top:0.5rem;
+}
+.search_result_desc{
+    text-align: center;
+    margin-top: 3rem;
+    background-color: aliceblue;
+    border:2px solid #21578e;
+    border-radius:8px;
+}
