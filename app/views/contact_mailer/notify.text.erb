@@ -1,0 +1,8 @@
+
+[chuRoom お問い合わせ]
+名前: <%= @form.name %>
+メール: <%= @form.email %>
+件名: <%= @form.subject.presence || "件名なし" %>
+
+本文:
+<%= @form.message %>
