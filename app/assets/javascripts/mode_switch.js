@@ -1,7 +1,7 @@
 document.addEventListener("turbo:load", () => {
   // ハンバーガーメニューのトグル
   const btn = document.getElementById("hamburger-btn");
-  const nav = document.getElementById("mobile-nav");
+  const nav = document.getElementById("header__nav");
   if (!btn || !nav) return;
 
   btn.addEventListener("click", () => {

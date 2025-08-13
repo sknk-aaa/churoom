@@ -271,7 +271,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   .search-time, .search-room {
     display: none;
   }
-  .contact-section {
+  .contact-index {
     display: none;
   }
 }
