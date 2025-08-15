@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   get  "contact/thanks", to: "contacts#thanks", as: :contact_thanks
 
   get "about" => "pages#about", as: :about
+
+  # 本番のヘルスチェック用（production.rbで silence_healthcheck_path="/up" に対応）
+  get "up" => "rails/health#show", as: :rails_health_check
+  # 存在しないパスへのフォールバック（404ページ）
+  match "*path", to: "application#render_404", via: :all
 end

@@ -10,6 +10,22 @@
     <meta name="description" content="<%= content_for(:meta_description).presence || "中央大学の空き教室を検索できる非公式ツール" %>">
     <meta charset="utf-8">
 
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- OGP -->
+    <meta property="og:title" content="chuRoom | 空き教室検索ツール">
+    <meta property="og:description" content="中央大学後楽園キャンパスの空き教室をすぐに探せます。時間・教室番号から検索可能。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://churoom.com/">
+    <meta property="og:image" content="https://churoom.com/images/ogp.jpg">
+    <meta property="og:site_name" content="chuRoom">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="chuRoom | 空き教室検索ツール">
+    <meta name="twitter:description" content="中央大学後楽園キャンパスの空き教室をすぐに探せます。時間・教室番号から検索可能。">
+    <meta name="twitter:image" content="https://churoom.com/images/ogp.jpg">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <%= yield :head %>
@@ -21,7 +37,6 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <link rel="manifest" href="/manifest.json">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>

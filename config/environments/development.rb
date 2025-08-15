@@ -86,4 +86,6 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
+
+  config.hosts << /\A[a-z0-9-]+\.ngrok-free\.app\z/
 end

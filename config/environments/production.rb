@@ -35,10 +35,10 @@ Rails.application.configure do
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
-  config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT)
+  config.logger   = ActiveSupport::TaggedLogging.new(Logger.new($stdout))
 
   # Change to "debug" to log everything (including potentially personally-identifiable information!)
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info").to_sym
 
   # Prevent health checks from clogging up the logs.
   config.silence_healthcheck_path = "/up"
@@ -58,7 +58,25 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "example.com" }
+  # --- Contact フォームのメール送信（Gmail/SMTP） ---
+  config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.gmail.com",
+    port:                 587,
+    user_name:            ENV.fetch("SMTP_USER"),
+    password:             ENV.fetch("SMTP_PASS"),
+    authentication:       :plain,
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5
+  }
+    # メール本文中のURLを正しくするため
+    config.action_mailer.default_url_options = {
+      host: ENV.fetch("APP_HOST", "localhost"),
+      protocol: "https"
+   }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
@@ -79,12 +97,15 @@ Rails.application.configure do
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
-  # Enable DNS rebinding protection and other `Host` header attacks.
-  # config.hosts = [
-  #   "example.com",     # Allow requests from example.com
-  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
-  # ]
-  #
-  # Skip DNS rebinding protection for the default health check endpoint.
-  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+   # Enable DNS rebinding protection and other `Host` header attacks.
+   # config.hosts = [
+   #   "example.com",     # Allow requests from example.com
+   #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+   # ]
+   #
+   # Skip DNS rebinding protection for the default health check endpoint.
+   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+   # 静的ファイルの配信を環境変数で制御
+   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 end
