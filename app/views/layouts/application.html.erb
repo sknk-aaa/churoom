@@ -26,51 +26,52 @@
   <body>
     <div class="wrapper">
       <header>
-        <%= link_to("chuRoom", search_path, class: "logo") %>
-        <ul class="nav-pc">
+        <%= link_to("chuRoom", search_path, class: "header__logo") %>
+
+        <!-- ヘッダーナビ（pc, タブレットで表示） -->
+        <ul class="header__nav--large">
           <li><%= link_to("検索", search_path) %></li>
-          <li><%= link_to("使い方", about_path) %></li>
+          <li><%= link_to("このサイトについて", about_path) %></li>
           <li><%= link_to("お問い合わせ", contact_new_path) %></li>
         </ul>
 
-        <div class="nav-mobile">
-          <!-- ハンバーガーボタン -->
-          <button
-            id="hamburger-btn"
-            class="hamburger"
-            aria-label="メニューを開閉"
-            aria-expanded="false"
-            aria-controls="mobile-nav"
-          >
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-          <!-- モバイル用ナビ -->
-          <nav id="mobile-nav" class="mobile-nav">
-            <ul>
-              <li><%= link_to "空き教室検索", search_path(anchor: "search-mode") %><i class="fa-solid fa-chevron-right"></i></li>
-              <li><%= link_to "使い方", about_path %><i class="fa-solid fa-chevron-right"></i></li>
-              <li><%= link_to "お問い合わせ", contact_new_path %><i class="fa-solid fa-chevron-right"></i></li>
-            </ul>
-          </nav>
-        </div>
+        <!-- ハンバーガーボタン（モバイルで表示） -->
+        <button
+          id="hamburger-btn"
+          class="hamburger-btn"
+          aria-label="メニューを開閉"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- モバイル用ナビ -->
+        <nav id="header__nav" class="header__nav">
+          <ul>
+            <li><%= link_to "空き教室検索", search_path %><i class="fa-solid fa-chevron-right"></i></li>
+            <li><%= link_to "このサイトについて", about_path %><i class="fa-solid fa-chevron-right"></i></li>
+            <li><%= link_to "お問い合わせ", contact_new_path %><i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </nav>
       </header>
       <main>
         <%= yield %>
       </main>
 
       <footer>
-        <ul class="footer-nav">
-          <li class="about-footer">
+        <ul class="footer__nav">
+          <li class="footer__about">
             <%= link_to("このサイトについて", about_path) %>
           </li>
-          <li class="contact-footer">
+          <li class="footer__contact">
             <%= link_to("お問い合わせ", contact_new_path) %>
           </li>
         </ul>
-        <%= link_to("chuRoom", search_path, class: "logo-footer") %>
-        <p>© 2025 chuRoom</p>
+        <%= link_to("chuRoom", search_path, class: "footer__logo") %>
+        <p class="footer__copyright">© 2025 chuRoom</p>
       </footer>
     </div>
   </body>

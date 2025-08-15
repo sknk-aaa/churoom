@@ -1,7 +1,7 @@
-<div class="search_result">
+<div class="result-room">
   <h2><%= @room_number %>教室 利用状況</h2>
-    <div class="room_timetable">
-        <table class="room_timetable-table">
+    <div class="result-room__timetable">
+        <table>
             <caption>
                 〇・・・空き<br>
                 ×・・・講義中
@@ -25,10 +25,11 @@
             <% end %>
         </table>
     </div>
-    <div class="search_result_desc">
+    <div class="result-room__desc">
         <p>
          <%= @room_number %> 教室の利用状況を表示しています。<br>
         休講や補講、学内イベント等により、実際の利用状況が表示内容と異なる場合があります。
         </p>
     </div>
+    <div class="result-room__btn"><%= link_to "トップへ戻る", search_path, class: "btn" %></div>
 </div>

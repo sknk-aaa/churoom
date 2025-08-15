@@ -1,34 +1,20 @@
-
-<div class="time-table_header">
-<h2 class="time-table_title"><%= @days_dic[@day] %>曜<%= @time %>限の空き教室一覧</h2>
-</div>
-<div class="time-table_body">
-    <div class="building building-5">
-        <h2>5号館</h2>
-        <div class="time-table time-table-5">
-            <%["1", "2", "3", "5"].each do |floor| %>
-                <div class="floor floor-5-<%= floor %>">
-                    <% @available_rooms.each do |room| %>
-                        <% if room[0] == "5" && room[1] == floor %>
-                            <span class="available_room"><%= link_to(room, result_room_path(number: room)) %></span>
-                        <% end %>
-                    <% end %>
+<section class="result-time">    
+        <h2 class="availability__time"><%= @days_dic[@day] %>曜<%= @time %>限 空き教室一覧</h2>
+        <div class="availability__body">
+          <% [5, 6].each do |building| %>
+            <h3 class="availability__building-name"><%= building %>号館</h3>
+            <div class="availability__floors">
+              <% @floors_by_building[building].each do |floor| %>
+                <div class="availability__floor">
+                  <% @available_rooms.each do |room| %>
+                      <% if room[0] == building.to_s && room[1] == floor %>
+                          <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
+                      <% end %>
+                  <% end %>
                 </div>
-            <% end %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-    </div>
-    <div class="building building-6">
-        <h2>6号館</h2>
-        <div class="time-table time-table-6">
-            <%["2", "3", "4"].each do |floor| %>
-                <div class="floor floor-6-<%= floor %>">
-                    <% @available_rooms.each do |room| %>
-                        <% if room[0] == "6" && room[1] == floor %>
-                            <span class="available_room"><%= link_to(room, result_room_path(number: room)) %></span>
-                        <% end %>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
-    </div>
-</div>
+        <div class="result-time__btn"><%= link_to "トップへ戻る", search_path, class: "btn" %></div>
+</section>
