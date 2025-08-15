@@ -1,14 +1,36 @@
 require "csv"
 class SearchesController < ApplicationController
+  before_action :load_data, only: [ :index, :result_time, :result_room, :filter ]
   CSV_PATH = Rails.root.join("db", "data", "timetable2025.csv")
-  before_action :set_common_vars, only: [ :index, :result_time, :result_room, :filter ]
-
   def index # 講義時間内であれば「現在の空き教室はこちら」を表示
     week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
     @day=week[Date.today.wday] # 曜日をdayに代入
 
     now = Time.zone.now
-    @time= case now  # 現在の時限をtimeに代入、講義時間外ならnilを返す
+    @time= period_for(now) # 現在の時限をtimeに代入、講義時間外ならnilを返す
+    @time=1
+
+    @available_rooms = availability(@day, @time)
+
+    @floors_by_building = { 5 => %w[1 2 3 5], 6 => %w[2 3 4] }
+  end
+
+  def availability(day, time)
+    occupied_rows = @table.select { |row| row[:day] == day && row[:time] == time }
+    occupied_rooms = occupied_rows.map { |row| row[:number].to_s }
+    available_rooms = @all_rooms - occupied_rooms
+
+    available_rooms
+  end
+
+  def result_time
+    @day = params[:day]
+    @time = params[:time].to_i
+    @available_rooms = availability(@day, @time)
+  end
+
+  def period_for(now)
+    time= case now  # 現在の時限をtimeに代入、講義時間外ならnilを返す
     when Time.zone.now.change(hour: 8,  min: 50, sec: 0)...Time.zone.now.change(hour: 10, min: 40, sec: 0)
             1
     when Time.zone.now.change(hour: 10, min: 40, sec: 0)...Time.zone.now.change(hour: 12, min: 30, sec: 0)
@@ -22,21 +44,9 @@ class SearchesController < ApplicationController
     else
             nil
     end
-    @time=1
 
-    occupied_rows = @table.select { |row| row[:day] == @day && row[:time] == @time }
-    occupied_rooms = occupied_rows.map { |row| row[:number].to_s }
-    @available_rooms = @all_rooms - occupied_rooms
-  end
-
-  def result_time
-    @day = params[:day]
-    @time = params[:time].to_i
-
-    occupied_rows = @table.select { |row| row[:day] == @day && row[:time] == @time }
-    occupied_rooms = occupied_rows.map { |row| row[:number].to_s }
-    @available_rooms = @all_rooms - occupied_rooms
-  end
+    time
+    end
 
   def filter # 検索ページからのフィルター機能
     redirect_to result_time_path(
@@ -47,12 +57,11 @@ class SearchesController < ApplicationController
 
   def result_room # 検索ページからの教室検索機能
     @room_number=params[:number].to_s
-    @room_data=@table.select do |row|
-      row[:number].to_s == @room_number
-    end
+    @room_data=@table.select { |row|
+      row[:number].to_s == @room_number}
   end
 
-  def set_common_vars
+  def load_data
     @days_dic = {
       "Mon" => "月", "Tue" => "火", "Wed" => "水",
       "Thu" => "木", "Fri" => "金", "Sat" => "土",
