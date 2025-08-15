@@ -8,7 +8,6 @@ class SearchesController < ApplicationController
 
     now = Time.zone.now
     @time= period_for(now) # 現在の時限をtimeに代入、講義時間外ならnilを返す
-    @time=1
 
     @available_rooms = availability(@day, @time)
   end
