@@ -11,8 +11,6 @@ class SearchesController < ApplicationController
     @time=1
 
     @available_rooms = availability(@day, @time)
-
-    @floors_by_building = { 5 => %w[1 2 3 5], 6 => %w[2 3 4] }
   end
 
   def availability(day, time)
@@ -62,6 +60,7 @@ class SearchesController < ApplicationController
   end
 
   def load_data
+    @floors_by_building = { 5 => %w[1 2 3 5], 6 => %w[2 3 4] }
     @days_dic = {
       "Mon" => "月", "Tue" => "火", "Wed" => "水",
       "Thu" => "木", "Fri" => "金", "Sat" => "土",

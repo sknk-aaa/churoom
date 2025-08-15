@@ -34,7 +34,7 @@ input[type="radio"][name="mode-select"]:checked + label {
     margin: 0 auto;
   }
 .search-time p{
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #143658; 
   margin-top: 2rem;
   text-align: center;
@@ -96,7 +96,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   border-radius: 8px;
   margin-bottom:2rem;
 }
-.availability__current-time{
+.availability__time{
   color:#001120;
     font-size: 1.5rem;
     margin-top:0.5rem;
@@ -152,7 +152,7 @@ input[type="radio"][name="mode-select"]:checked + label {
     margin: 0 auto;
  }
 .search-room p{
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #143658; 
   margin-top: 2rem;
   text-align: center;
@@ -219,6 +219,9 @@ input[type="radio"][name="mode-select"]:checked + label {
     width: 80%;
     margin: 0 auto;
   }
+  .search-room p{
+  margin-bottom: 3rem;
+}
   .all-rooms__floors{
     margin-left:2rem;
 }
@@ -242,6 +245,12 @@ input[type="radio"][name="mode-select"]:checked + label {
   }
   .search-time{
       width:50%;
+  }
+  .search-room{
+      width:60%;
+  }
+  .all-rooms__floors{
+    margin-bottom:2rem;
   }
   .current-link{
     display: block;

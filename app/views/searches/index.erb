@@ -51,7 +51,7 @@
     <section class="availability availability--current">    
       <h1>現在の空き教室一覧</h1>
       <div class="availability__card">
-        <h2 class="availability__current-time"><%= @days_dic[@day] %>曜<%= @time %>限</h2>
+        <h2 class="availability__time"><%= @days_dic[@day] %>曜<%= @time %>限</h2>
         <div class="availability__body">
           <% [5, 6].each do |building| %>
             <h3 class="availability__building-name"><%= building %>号館</h3>

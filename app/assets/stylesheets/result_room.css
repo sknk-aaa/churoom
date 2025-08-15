@@ -1,12 +1,12 @@
-.search_result{
+.result-room{
     margin: 0 auto;
     width:90%;
     text-align: center;
 }
-.room_timetable{
+.result-room__timetable{
     margin-top: 2rem;
 }
-.room_timetable-table{
+.result-room__timetable table{
     margin: 0 auto;
     border-collapse: collapse;
 }
@@ -21,10 +21,52 @@ caption{
     width:70%;
     margin-top:0.5rem;
 }
-.search_result_desc{
+.result-room__desc{
     text-align: center;
     margin-top: 3rem;
     background-color: aliceblue;
     border:2px solid #21578e;
     border-radius:8px;
+}
+.result-room__btn{
+    text-align: center;
+    margin-top: 3rem;
+    margin-top: 2rem;
+}
+.result-room .btn {
+  display: inline-block;
+  background: #F96E1D;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.result-room .btn:hover {
+  background: #b94400;
+}
+
+
+/* タブレット用レスポンシブ*/
+@media screen and (min-width: 768px) {
+    .result-room{
+        width:70%;
+}
+    th, td {
+        border: 1px solid #333;
+        padding: 1rem;
+}
+}
+/* PC用レスポンシブ*/
+@media screen and (min-width: 1024px) {
+    .result-room{
+        width:60%;
+}
+    th, td {
+        border: 1px solid #333;
+        padding: 1rem;
+}
 }
