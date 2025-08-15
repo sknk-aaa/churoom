@@ -1,3 +1,5 @@
+<% content_for(:title) { "#{@days_dic[@day]}曜#{@time}限 空き教室一覧" } %>
+
 <section class="result-time">    
         <h2 class="availability__time"><%= @days_dic[@day] %>曜<%= @time %>限 空き教室一覧</h2>
         <div class="availability__body">

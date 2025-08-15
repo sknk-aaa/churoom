@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title><%= content_for(:title) || "Churoom" %></title>
+    <title><%= [content_for(:title).presence, "chuRoom"].compact.join(" | ") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="description" content="<%= content_for(:meta_description).presence || "中央大学の空き教室を検索できる非公式ツール" %>">
+    <meta charset="utf-8">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <%= yield :head %>
@@ -41,7 +44,7 @@
           class="hamburger-btn"
           aria-label="メニューを開閉"
           aria-expanded="false"
-          aria-controls="mobile-nav"
+          aria-controls="header__nav"
         >
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
