@@ -10,7 +10,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 
-# ---- DB は環境別に分ける：開発/テスト=SQLite、本番=PostgreSQL ----
+# ---- DB は環境別に分ける：本番=PostgreSQL ----
 group :development, :test do
   gem "sqlite3", "~> 2.7"
 end
