@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   # 存在しないパスへのフォールバック（404ページ）
   match "*path", to: "application#render_404", via: :all
+  get "/up", to: proc { [ 200, { "Content-Type" => "text/plain" }, [ "OK" ] ] }
 end
