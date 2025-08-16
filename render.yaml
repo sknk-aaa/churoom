@@ -1,0 +1,70 @@
+# render.yaml
+services:
+  - type: web
+    name: churoom-web
+    env: ruby
+    plan: free                           # 有料なら starter 等
+    region: singapore                    # 近いリージョンに
+    buildCommand: |
+      bundle install --without development test
+      RAILS_ENV=production bin/rails assets:precompile
+      RAILS_ENV=production bin/rails db:prepare
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /up
+    autoDeploy: true
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_SERVE_STATIC_FILES
+        value: "1"
+      - key: RAILS_MAX_THREADS
+        value: "5"
+      - key: WEB_CONCURRENCY
+        value: "2"            # DBやメモリに合わせて 1〜2 で開始
+      - key: APP_HOST
+        value: churoom.onrender.com   # 独自ドメインを使うなら後で差し替え
+      - key: SMTP_USER
+        sync: false            # Renderダッシュボードで値を入れる
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_TO
+        value: churoom.info@gmail.com
+      - key: CONTACT_FROM
+        value: churoom.info@gmail.com
+      - key: RAILS_MASTER_KEY
+        sync: false            # ダッシュボードで入力（必須）
+
+  - type: worker
+    name: churoom-worker
+    env: ruby
+    plan: free
+    region: singapore
+    buildCommand: |
+      bundle install --without development test
+      RAILS_ENV=production bin/rails db:prepare
+    startCommand: bin/rails solid_queue:start
+    autoDeploy: true
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_MAX_THREADS
+        value: "5"
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: churoom-db
+          property: connectionString
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_TO
+        value: churoom.info@gmail.com
+      - key: CONTACT_FROM
+        value: churoom.info@gmail.com
+
+databases:
+  - name: churoom-db
+    databaseName: churoom_prod
+    plan: free
