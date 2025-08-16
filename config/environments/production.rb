@@ -71,8 +71,8 @@ Rails.application.configure do
     open_timeout:         5,
     read_timeout:         5
   }
-    # メール本文中のURLを正しくするため
-    config.action_mailer.default_url_options = {
+  # メール本文中のURLを正しくするため
+  config.action_mailer.default_url_options = {
       host: ENV.fetch("APP_HOST", "localhost"),
       protocol: "https"
    }
