@@ -42,8 +42,11 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT", 3000)
+## Render で確実に検出されるよう 0.0.0.0:$PORT に明示バインド
+bind "tcp://0.0.0.0:#{ENV.fetch('PORT', 3000)}"
+
+## 念のため環境も明示
+environment ENV.fetch("RAILS_ENV", "production")
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
