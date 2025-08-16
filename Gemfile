@@ -18,11 +18,6 @@ group :production do
   gem "pg", ">= 1.5"
 end
 
-# Solid 系（DBを使う）
-gem "solid_cache"
-gem "solid_queue"
-gem "solid_cable"
-
 # 起動高速化
 gem "bootsnap", require: false
 
