@@ -77,6 +77,11 @@ Rails.application.configure do
       protocol: "https"
    }
 
+  Rails.application.configure do
+    config.hosts << "churoom.com"
+    config.hosts << "www.churoom.com" # wwwありも使う場合
+  end
+
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
   #   user_name: Rails.application.credentials.dig(:smtp, :user_name),

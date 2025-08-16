@@ -52,7 +52,7 @@ environment ENV.fetch("RAILS_ENV", "production")
 plugin :tmp_restart
 
 
-#plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"] == "1"
+# plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"] == "1"
 
 # Specify the PID file. Defaults to tmp/pids/server.pid in development.
 # In other environments, only set the PID file if requested.
