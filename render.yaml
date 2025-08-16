@@ -15,8 +15,8 @@ services:
       gem -v
       gem install bundler -v 2.6.9
       bundle -v
-      bundle config set path vendor/bundle
-      bundle install --without development test --jobs 4 --retry 3
+      bundle config unset path || true
+      bundle check || bundle install --without development test --jobs 4 --retry 3
       RAILS_ENV=production bin/rails assets:precompile
       RAILS_ENV=production bin/rails db:prepare
     startCommand: bash -lc 'set -euxo pipefail; ruby -v; bundle -v; bundle exec puma -C config/puma.rb'
