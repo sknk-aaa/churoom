@@ -10,16 +10,16 @@ checking for cpuid.h... yes
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/json-2.13.1/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ss523e sitelibdir\=./.gem.20250815-70309-ss523e clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-u14mjp sitelibdir\=./.gem.20250817-74997-u14mjp clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/json-2.13.1/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ss523e sitelibdir\=./.gem.20250815-70309-ss523e
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-u14mjp sitelibdir\=./.gem.20250817-74997-u14mjp
 compiling parser.c
 linking shared-object json/ext/parser.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/json-2.13.1/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ss523e sitelibdir\=./.gem.20250815-70309-ss523e install
-/usr/bin/install -c -m 0755 parser.so ./.gem.20250815-70309-ss523e/json/ext
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-u14mjp sitelibdir\=./.gem.20250817-74997-u14mjp install
+/usr/bin/install -c -m 0755 parser.so ./.gem.20250817-74997-u14mjp/json/ext
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/json-2.13.1/ext/json/ext/parser
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ss523e sitelibdir\=./.gem.20250815-70309-ss523e clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-u14mjp sitelibdir\=./.gem.20250817-74997-u14mjp clean

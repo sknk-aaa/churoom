@@ -3,16 +3,16 @@ current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/racc-
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ftr0ub sitelibdir\=./.gem.20250815-70309-ftr0ub clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-42duir sitelibdir\=./.gem.20250817-74997-42duir clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ftr0ub sitelibdir\=./.gem.20250815-70309-ftr0ub
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-42duir sitelibdir\=./.gem.20250817-74997-42duir
 compiling cparse.c
 linking shared-object racc/cparse.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ftr0ub sitelibdir\=./.gem.20250815-70309-ftr0ub install
-/usr/bin/install -c -m 0755 cparse.so ./.gem.20250815-70309-ftr0ub/racc
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-42duir sitelibdir\=./.gem.20250817-74997-42duir install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20250817-74997-42duir/racc
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/racc-1.8.1/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-ftr0ub sitelibdir\=./.gem.20250815-70309-ftr0ub clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-42duir sitelibdir\=./.gem.20250817-74997-42duir clean

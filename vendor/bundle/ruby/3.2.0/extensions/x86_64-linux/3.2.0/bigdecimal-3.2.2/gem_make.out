@@ -28,17 +28,17 @@ checking for RB_WARN_CATEGORY_DEPRECATED in ruby.h... yes
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.2.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-fp43mo sitelibdir\=./.gem.20250815-70309-fp43mo clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-f99n87 sitelibdir\=./.gem.20250817-74997-f99n87 clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.2.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-fp43mo sitelibdir\=./.gem.20250815-70309-fp43mo
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-f99n87 sitelibdir\=./.gem.20250817-74997-f99n87
 compiling bigdecimal.c
 compiling missing.c
 linking shared-object bigdecimal.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.2.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-fp43mo sitelibdir\=./.gem.20250815-70309-fp43mo install
-/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20250815-70309-fp43mo
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-f99n87 sitelibdir\=./.gem.20250817-74997-f99n87 install
+/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20250817-74997-f99n87
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.2.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-fp43mo sitelibdir\=./.gem.20250815-70309-fp43mo clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-f99n87 sitelibdir\=./.gem.20250817-74997-f99n87 clean

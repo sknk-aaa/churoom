@@ -6,10 +6,10 @@ checking for altzone in time.h with  -Werror... no
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/date-3.4.1/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-vz80hp sitelibdir\=./.gem.20250815-70309-vz80hp clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-7tt31k sitelibdir\=./.gem.20250817-74997-7tt31k clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/date-3.4.1/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-vz80hp sitelibdir\=./.gem.20250815-70309-vz80hp
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-7tt31k sitelibdir\=./.gem.20250817-74997-7tt31k
 compiling date_core.c
 compiling date_parse.c
 compiling date_strftime.c
@@ -17,8 +17,8 @@ compiling date_strptime.c
 linking shared-object date_core.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/date-3.4.1/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-vz80hp sitelibdir\=./.gem.20250815-70309-vz80hp install
-/usr/bin/install -c -m 0755 date_core.so ./.gem.20250815-70309-vz80hp
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-7tt31k sitelibdir\=./.gem.20250817-74997-7tt31k install
+/usr/bin/install -c -m 0755 date_core.so ./.gem.20250817-74997-7tt31k
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/date-3.4.1/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-vz80hp sitelibdir\=./.gem.20250815-70309-vz80hp clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-7tt31k sitelibdir\=./.gem.20250817-74997-7tt31k clean

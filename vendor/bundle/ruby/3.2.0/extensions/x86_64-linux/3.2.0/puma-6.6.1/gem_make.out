@@ -26,18 +26,18 @@ checking for Random.bytes... yes
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/puma-6.6.1/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-jg7gk9 sitelibdir\=./.gem.20250815-70309-jg7gk9 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-dcsmf1 sitelibdir\=./.gem.20250817-74997-dcsmf1 clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/puma-6.6.1/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-jg7gk9 sitelibdir\=./.gem.20250815-70309-jg7gk9
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-dcsmf1 sitelibdir\=./.gem.20250817-74997-dcsmf1
 compiling http11_parser.c
 compiling mini_ssl.c
 compiling puma_http11.c
 linking shared-object puma/puma_http11.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/puma-6.6.1/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-jg7gk9 sitelibdir\=./.gem.20250815-70309-jg7gk9 install
-/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20250815-70309-jg7gk9/puma
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-dcsmf1 sitelibdir\=./.gem.20250817-74997-dcsmf1 install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20250817-74997-dcsmf1/puma
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/puma-6.6.1/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-jg7gk9 sitelibdir\=./.gem.20250815-70309-jg7gk9 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-dcsmf1 sitelibdir\=./.gem.20250817-74997-dcsmf1 clean

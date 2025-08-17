@@ -13,10 +13,10 @@ checking for whether -DSTR_UMINUS_DEDUPE_FROZEN=1 is accepted as CFLAGS... yes
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/msgpack-1.8.0/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-yhhgt8 sitelibdir\=./.gem.20250815-70309-yhhgt8 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-5hie0e sitelibdir\=./.gem.20250817-74997-5hie0e clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/msgpack-1.8.0/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-yhhgt8 sitelibdir\=./.gem.20250815-70309-yhhgt8
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-5hie0e sitelibdir\=./.gem.20250817-74997-5hie0e
 compiling buffer.c
 compiling buffer_class.c
 compiling extension_value_class.c
@@ -32,8 +32,8 @@ compiling unpacker_ext_registry.c
 linking shared-object msgpack/msgpack.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/msgpack-1.8.0/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-yhhgt8 sitelibdir\=./.gem.20250815-70309-yhhgt8 install
-/usr/bin/install -c -m 0755 msgpack.so ./.gem.20250815-70309-yhhgt8/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-5hie0e sitelibdir\=./.gem.20250817-74997-5hie0e install
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20250817-74997-5hie0e/msgpack
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/msgpack-1.8.0/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-yhhgt8 sitelibdir\=./.gem.20250815-70309-yhhgt8 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-5hie0e sitelibdir\=./.gem.20250817-74997-5hie0e clean

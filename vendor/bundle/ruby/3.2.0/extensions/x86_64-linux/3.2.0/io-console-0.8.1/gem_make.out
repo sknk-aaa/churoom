@@ -16,16 +16,16 @@ checking for ttyname_r()... yes
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.1/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-8q7dr9 sitelibdir\=./.gem.20250815-70309-8q7dr9 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-smtdsn sitelibdir\=./.gem.20250817-74997-smtdsn clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.1/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-8q7dr9 sitelibdir\=./.gem.20250815-70309-8q7dr9
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-smtdsn sitelibdir\=./.gem.20250817-74997-smtdsn
 compiling console.c
 linking shared-object io/console.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.1/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-8q7dr9 sitelibdir\=./.gem.20250815-70309-8q7dr9 install
-/usr/bin/install -c -m 0755 console.so ./.gem.20250815-70309-8q7dr9/io
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-smtdsn sitelibdir\=./.gem.20250817-74997-smtdsn install
+/usr/bin/install -c -m 0755 console.so ./.gem.20250817-74997-smtdsn/io
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/io-console-0.8.1/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-8q7dr9 sitelibdir\=./.gem.20250815-70309-8q7dr9 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-smtdsn sitelibdir\=./.gem.20250817-74997-smtdsn clean

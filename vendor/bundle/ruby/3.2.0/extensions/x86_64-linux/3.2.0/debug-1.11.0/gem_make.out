@@ -3,17 +3,17 @@ current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/debug
 creating Makefile
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/debug-1.11.0/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-nvwev7 sitelibdir\=./.gem.20250815-70309-nvwev7 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-xz5ifw sitelibdir\=./.gem.20250817-74997-xz5ifw clean
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/debug-1.11.0/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-nvwev7 sitelibdir\=./.gem.20250815-70309-nvwev7
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-xz5ifw sitelibdir\=./.gem.20250817-74997-xz5ifw
 compiling debug.c
 compiling iseq_collector.c
 linking shared-object debug/debug.so
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/debug-1.11.0/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-nvwev7 sitelibdir\=./.gem.20250815-70309-nvwev7 install
-/usr/bin/install -c -m 0755 debug.so ./.gem.20250815-70309-nvwev7/debug
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-xz5ifw sitelibdir\=./.gem.20250817-74997-xz5ifw install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20250817-74997-xz5ifw/debug
 
 current directory: /home/aaa/project/churoom/vendor/bundle/ruby/3.2.0/gems/debug-1.11.0/ext/debug
-make DESTDIR\= sitearchdir\=./.gem.20250815-70309-nvwev7 sitelibdir\=./.gem.20250815-70309-nvwev7 clean
+make DESTDIR\= sitearchdir\=./.gem.20250817-74997-xz5ifw sitelibdir\=./.gem.20250817-74997-xz5ifw clean
