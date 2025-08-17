@@ -35,3 +35,4 @@
 
 # 環境変数ファイル
 .env
+/vendor/bundle
