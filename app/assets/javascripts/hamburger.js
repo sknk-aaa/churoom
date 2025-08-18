@@ -1,4 +1,10 @@
-document.addEventListener("turbo:load", () => {
+function onReady(fn){
+  if (document.readyState !== "loading") fn();
+  document.addEventListener("DOMContentLoaded", fn);
+  document.addEventListener("turbo:load", fn);
+}
+
+onReady(() => {
   const btn = document.getElementById("hamburger-btn");
   const nav = document.getElementById("header__nav");
   if (!btn || !nav) return;
@@ -9,9 +15,10 @@ document.addEventListener("turbo:load", () => {
     btn.classList.toggle("is-active");
     nav.classList.toggle("is-open");
   });
+
   nav.addEventListener("click", () => {
     nav.classList.remove("is-open");
-    btn.classList.remove("is-active"); 
+    btn.classList.remove("is-active");
     btn.setAttribute("aria-expanded", "false");
   });
 });

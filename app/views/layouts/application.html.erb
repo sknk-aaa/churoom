@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title><%= [content_for(:title).presence, "chuRoom"].compact.join(" | ") %></title>
+    <!-- ====== 基本情報 ====== -->
+    <meta charset="utf-8">
+    <title>
+      <% if content_for?(:raw_title) %>
+        <%= yield :raw_title %> <!-- ルートビューでのみ指定 -->
+      <% else %>
+        <%= [content_for(:title).presence, "chuRoom"].compact.join(" | ") %>
+      <% end %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<%= content_for(:meta_description).presence || "中央大学の空き教室を検索できる非公式ツール" %>">
     <link rel="canonical" href="https://churoom.com/">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- ====== セキュリティ / PWA 関連 ====== -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="description" content="<%= content_for(:meta_description).presence || "中央大学の空き教室を検索できる非公式ツール" %>">
-    <meta charset="utf-8">
-
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="/manifest.json">
 
+    <!-- ====== Favicon / アイコン ====== -->
     <%= favicon_link_tag '/favicon-2.png',
       rel: 'icon',
-      type: 'image/x-icon',
+      type: 'image/png',
       skip_pipeline: true %>
 
-    <!-- OGP -->
+    <!-- ====== OGP (Facebook, LINE 等) ====== -->
     <meta property="og:title" content="chuRoom | 空き教室検索ツール">
     <meta property="og:description" content="中央大学後楽園キャンパスの空き教室をすぐに探せます。時間・教室番号から検索可能。">
     <meta property="og:type" content="website">
@@ -26,21 +35,28 @@
     <meta property="og:image" content="https://churoom.com/images/ogp_2025.jpg">
     <meta property="og:site_name" content="chuRoom">
 
-    <!-- Twitterカード -->
+    <!-- ====== Twitterカード ====== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="chuRoom | 空き教室検索ツール">
     <meta name="twitter:description" content="中央大学後楽園キャンパスの空き教室をすぐに探せます。時間・教室番号から検索可能。">
     <meta name="twitter:image" content="https://churoom.com/images/ogp_2025.jpg">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- ====== 外部ライブラリ ====== -->
+    <%= tag.link rel: "preconnect", href: "https://cdnjs.cloudflare.com", crossorigin: true %>
+    <%= tag.link rel: "dns-prefetch", href: "//cdnjs.cloudflare.com" %>
 
+    <link rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </noscript>
+
+    <!-- ====== Rails 用追加 head ====== -->
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <!-- ====== アセット (CSS / JS) ====== -->
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>

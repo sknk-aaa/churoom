@@ -25,10 +25,6 @@ input[type="radio"][name="mode-select"]:checked + label {
 }
 
 /* 時間から探すセクション */
-.search-time, .search-room {  
-    display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
-  }
-
 .search-time{
     width:90%;
     margin: 0 auto;
@@ -147,6 +143,9 @@ input[type="radio"][name="mode-select"]:checked + label {
   }
 
 /* 教室から探すセクション */
+.search-room {  
+    display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
+  }
 .search-room{
     width: 90%;
     margin: 0 auto;
@@ -177,6 +176,8 @@ input[type="radio"][name="mode-select"]:checked + label {
 
 /* 問い合わせセクション */
 .index__contact--wrapper{
+  content-visibility: auto;
+  contain-intrinsic-size: 180px;
   margin-top:3rem;
   text-align: center;
   background-color: rgb(219, 238, 255);
@@ -237,6 +238,7 @@ input[type="radio"][name="mode-select"]:checked + label {
     font-size:1.5rem;
     margin-right: 0.5rem;
   }
+
 }
 /* PC用レスポンシブ*/
 @media screen and (min-width: 1024px) {

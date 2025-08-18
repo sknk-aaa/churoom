@@ -115,4 +115,6 @@ Rails.application.configure do
 
    config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
    config.hosts << ENV.fetch("APP_HOST") if ENV["APP_HOST"].present?
+
+   config.middleware.use Rack::Deflater
 end
