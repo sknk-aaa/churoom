@@ -156,11 +156,22 @@
   display: grid;
   gap: 0.5rem;
 }
+.link-list li{
+  display:flex;
+  align-items:center;
+}
 
 .link-list__label {
-  display: inline-block;
-  min-width: 7rem; /* ラベル幅を揃えて可読性UP */
+  display: flex;             
+  align-items: center;        
+  gap: 0.3rem;   
+  min-width: 7rem; 
   color: var(--about-muted);
+}
+.link-list__icon {
+  display: block;
+  width: 16px; 
+  height:auto;
 }
 
 /* ----- ロードマップ ------------------------------------ */
