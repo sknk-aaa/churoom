@@ -60,12 +60,11 @@
           <% [5, 6].each do |building| %>
             <h3 class="availability__building-name"><%= building %>号館</h3>
             <div class="availability__floors">
-              <% @floors_by_building[building].each do |floor| %>
+              <!-- {5 => [1, 2, 3, 5], 6 => [2, 3, 4]} -->
+              <% @floors_by_building[building].each do |floor| %> 
                 <div class="availability__floor">
-                  <% @available_rooms.each do |room| %>
-                      <% if room[0] == building.to_s && room[1] == floor %>
-                          <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
-                      <% end %>
+                  <% @available_rooms_index[building][floor].each do |room| %>
+                      <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
                   <% end %>
                 </div>
               <% end %>
@@ -92,10 +91,8 @@
     <div class="all-rooms__floors">
       <% @floors_by_building[building].each do |floor| %>
         <div class="all-rooms__floor">
-          <% @all_rooms.each do |room| %>
-            <% if room[0] == building.to_s && room[1] == floor %>
-              <span class="all-rooms__room"><%= link_to(room, result_room_path(number: room)) %></span>
-            <% end %>
+          <% @all_rooms_index[building][floor].each do |room| %>
+            <span class="all-rooms__room"><%= link_to(room, result_room_path(number: room)) %></span>
           <% end %>
         </div>
       <% end %>

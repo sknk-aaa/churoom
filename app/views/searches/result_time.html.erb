@@ -8,10 +8,8 @@
             <div class="availability__floors">
               <% @floors_by_building[building].each do |floor| %>
                 <div class="availability__floor">
-                  <% @available_rooms.each do |room| %>
-                      <% if room[0] == building.to_s && room[1] == floor %>
-                          <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
-                      <% end %>
+                  <% @available_rooms_index[building][floor].each do |room| %>
+                      <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
                   <% end %>
                 </div>
               <% end %>
