@@ -72,28 +72,45 @@
           <li><%= link_to("このサイトについて", about_path) %></li>
           <li><%= link_to("お問い合わせ", contact_new_path) %></li>
         </ul>
-
+        
         <!-- ハンバーガーボタン（モバイルで表示） -->
-        <button
-          id="hamburger-btn"
-          class="hamburger-btn"
-          aria-label="メニューを開閉"
-          aria-expanded="false"
-          aria-controls="header__nav"
-        >
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-        </button>
+        <div data-controller="hamburger" class="header__hamburger">
+          <button
+            data-hamburger-target="button"
+            data-action="click->hamburger#toggle"
+            class="hamburger-btn"
+            aria-expanded="false"
+          >
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
 
-        <!-- モバイル用ナビ -->
-        <nav id="header__nav" class="header__nav">
-          <ul>
-            <li><%= link_to "空き教室検索", search_path %><i class="fa-solid fa-chevron-right"></i></li>
-            <li><%= link_to "このサイトについて", about_path %><i class="fa-solid fa-chevron-right"></i></li>
-            <li><%= link_to "お問い合わせ", contact_new_path %><i class="fa-solid fa-chevron-right"></i></li>
-          </ul>
-        </nav>
+          <!-- モバイル用ナビ -->
+          <nav 
+            data-hamburger-target="nav"
+            data-action="click->hamburger#close" 
+            class="header__nav"
+          >
+            <ul>
+              <li>
+                <%= link_to search_path do %>
+                  空き教室検索 <i class="fa-solid fa-chevron-right"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path do %>
+                  このサイトについて <i class="fa-solid fa-chevron-right"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to contact_new_path do %>
+                  お問い合わせ <i class="fa-solid fa-chevron-right"></i>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
       <main>
         <%= yield %>

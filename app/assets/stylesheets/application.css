@@ -114,7 +114,6 @@ header{
   width:100%;
   display:flex;
   align-items: center;
-  justify-content: space-between;
   padding:0 1.25rem;
   border-bottom: 2px dashed #e6e6e6;
 }
@@ -122,12 +121,14 @@ header{
   color:#143658;
   width: 100%;
   padding: 1rem 0;
-  display:block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1rem;
 }
-.header__nav ul li span{
-  font-size: 1rem;
-}
+
+
+
 /* メイン部分*/
 main{
   flex: 1 0 auto;
@@ -197,13 +198,9 @@ footer a{
     font-size:1rem;
     color:white;
   }
-  .hamburger-btn {
+  .header__hamburger {
     display: none;
   }
-  .header__nav{
-    display:none;
-  }
-
 
   /* フッター部分*/
   footer{
