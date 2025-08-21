@@ -5,7 +5,7 @@
 /*index.cssからのスタイルの継承*/
 .result-time h2{
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     text-align: center;
     color: #001120;
 }

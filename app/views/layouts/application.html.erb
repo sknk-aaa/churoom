@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       <% if content_for?(:raw_title) %>
-        <%= yield :raw_title %> <!-- ルートビューでのみ指定 -->
+        <%= yield :raw_title %> 
       <% else %>
         <%= [content_for(:title).presence, "chuRoom"].compact.join(" | ") %>
       <% end %>
@@ -22,10 +22,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- ====== Favicon / アイコン ====== -->
-    <%= favicon_link_tag '/favicon-2.png',
-      rel: 'icon',
-      type: 'image/png',
-      skip_pipeline: true %>
+   <link rel="icon" href="/favicon-v2.ico">
 
     <!-- ====== OGP (Facebook, LINE 等) ====== -->
     <meta property="og:title" content="chuRoom | 空き教室検索ツール">
