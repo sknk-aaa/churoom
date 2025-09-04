@@ -36,7 +36,7 @@
 3. 結果から用途に合う教室を選択 
 
 ## 画面遷移図
-<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/ff3ea7bf-1be0-4a0a-af48-13d3395debbc" />
+<img width="658" height="658" alt="Image" src="https://github.com/user-attachments/assets/7483f6dd-ef26-47c6-b373-a1b2bf0df97d" />
 
 ## お問い合わせ
 
