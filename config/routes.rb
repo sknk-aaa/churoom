@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get "search/room/:number" => "searches#result_room", as: :result_room
   get "search/time/:day/:time" => "searches#result_time",  as: :result_time
 
-  resource :contact, only: [:new, :create] #new_contact_path, contact_path
-  get  "contact/thanks", to: "contacts#thanks", as: :contact_thanks
+  resource :contact, only: [ :new, :create ] # new_contact_path, contact_path
+  get "contact/thanks", to: "contacts#thanks", as: :contact_thanks
 
   get "about" => "pages#about", as: :about
 
