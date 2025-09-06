@@ -21,6 +21,10 @@ services:
       RAILS_ENV=production bin/rails db:prepare
     startCommand: bash -lc 'set -euxo pipefail; ruby -v; bundle -v; bundle exec puma -C config/puma.rb'
     preDeployCommand: bundle exec rails db:prepare
+    postDeployCommand: |
+      bin/rails db:migrate
+      bin/rails import:timetable
+
     healthCheckPath: /up
     envVars:
       - key: RAILS_ENV
@@ -41,7 +45,6 @@ services:
         value: "2"
       - key: APP_HOST
         value: churoom.onrender.com
-      # メールを使うなら（値はダッシュボードで設定）
       - key: SMTP_USER
         value: churoom.info@gmail.com
       - key: SMTP_PASS
