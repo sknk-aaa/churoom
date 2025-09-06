@@ -6,7 +6,7 @@ gem "rails", "~> 8.0.2"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
-#gem "turbo-rails"
+# gem "turbo-rails"
 gem "stimulus-rails"
 
 
