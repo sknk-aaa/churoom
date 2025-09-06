@@ -36,7 +36,7 @@
 3. 結果から用途に合う教室を選択 
 
 ## 画面遷移図
-<img width="550" height="550" alt="Image" src="https://github.com/user-attachments/assets/cbc1ca34-61c8-4158-81da-38cb262c5373" />
+<img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/501b3a31-3f4b-45f1-82a5-96de5861b0a2" />
 
 ## お問い合わせ
 
@@ -52,26 +52,32 @@
 - 言語：Ruby 3.2.2 / HTML / CSS / JavaScript
 - フレームワーク：Rails 8系, Stimulus
 - デプロイ：Render（Git連携）
-- データ：CSV（`db/data/timetableYYYY.csv`）
+- データ管理：PostgreSQL
 - PWA：Web App Manifest + 透過アイコン（ホーム追加対応）  
 
 ## データモデル / CSV 仕様
-- 文字コード：`SJIS -> UTF-8` に変換して格納
-- 必須カラム例：
+- Occupancies テーブル
+学期ごとの時間割を CSV → DB 全入替 する運用。
 
-  | column | type   | example |
-  |--------|--------|---------|
-  | day    | String | "Mon"   |
-  | time   | Int    | 1       |
-  | number | String | "5334"  |
+| column     | type     | constraints                   | note                  |
+|------------|----------|-------------------------------|-----------------------|
+| id         | integer  | PK                            |                       |
+| day        | string   | NOT NULL, in: Mon..Sun        | 曜日                  |
+| time       | integer  | NOT NULL, in: 1..5            | 時限                  |
+| number     | string   | NOT NULL                      | 教室コード（例: 5136）|
+| created_at | datetime |                               | Rails managed         |
+| updated_at | datetime |                               | Rails managed         |
 
-- 内部表現：
-  - `occupied_rows = @table.select { |row| row[:day] == day && row[:time] == time }`
-  - `occupied_rooms = occupied_rows.map { |row| row[:number].to_s }`
-  - `available_rooms = @all_rooms - occupied_rooms`
-- 学期始め（前期/後期）更新：`db/data/timetableYYYY.csv` を差し替え
-- `app/controllers/searches_controller.rb` の `CSV_PATH = Rails.root.join("db", "data", "timetable2025.csv")` 部分の更新
+### インデックス
+  - [:day, :time] で高速検索
+  - [:day, :time, :number] にユニーク制約、二重登録を禁止
 
+### 更新
+学期の切替時に `db/data/timetable.csv` を差し替え→githubにpush
+
+デプロイ後、Render の `postDeployCommand` で
+- bin/rails db:migrate
+- bin/rails import:timetable により自動更新
 
 ## 技術メモ（お問い合わせフォーム）
 - フレームワーク: Rails **Action Mailer**

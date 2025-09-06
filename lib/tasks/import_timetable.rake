@@ -22,6 +22,6 @@ namespace :import do
       end
     end
 
-    puts "Replaced occupancies with #{rows} rows from #{file}"
+    puts " #{rows}が登録されました"
   end
 end
