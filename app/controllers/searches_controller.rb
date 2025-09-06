@@ -1,15 +1,12 @@
-require "csv"
 require "set"
 class SearchesController < ApplicationController
   before_action :load_data, only: [ :index, :result_time, :result_room, :filter ]
-  CSV_PATH = Rails.root.join("db", "data", "timetable2025.csv")
 
   def index
     week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-    @day=week[Date.today.wday] # 曜日をdayに代入
-
+    @day=week[Date.today.wday]
     now = Time.zone.now
-    @time= period_for(now) # 現在の時限をtimeに代入、講義時間外ならnilを返す
+    @time= period_for(now)
     @available_rooms_index = build_available_index(@day, @time)
   end
 
@@ -19,23 +16,23 @@ class SearchesController < ApplicationController
     @available_rooms_index = build_available_index(@day, @time)
   end
 
-  def result_room # 検索ページからの教室検索機能
-    @room_number=params[:number].to_s
-    @room_data=@table.select { |row|
-      row[:number].to_s == @room_number}
+  def result_room
+    @room_number = params[:number].to_s
+    @room_data = Occupancy.where(number: @room_number)
+                          .order(:day, :time)
+                          .select(:day, :time)
   end
 
 
 def build_available_index(day, time)
-    occupied_set = @table
-                     .select { |r| r[:day] == day && r[:time] == time }
-                     .map    { |r| r[:number].to_s.strip }
-                     .to_set
+    occupied_set = Occupancy.where(day:, time:)
+                            .pluck(:number)
+                            .map { |n| n.to_s.strip }
+                            .to_set
 
-    # all_rooms_index からそのまま差し引く
     idx = Hash.new { |h, b| h[b] = Hash.new { |hh, f| hh[f] = [] } }
-    @all_rooms_index.each do |b, floors_h|
-      floors_h.each do |f, rooms|
+    @all_rooms_index.each do |b, floors|
+      floors.each do |f, rooms|
         idx[b][f] = rooms.reject { |n| occupied_set.include?(n) }
       end
     end
@@ -75,7 +72,6 @@ def build_available_index(day, time)
         "Thu" => "木", "Fri" => "金", "Sat" => "土",
         "Sun" => "日"
       }
-    @table = CSV.table(CSV_PATH, encoding: "SJIS:UTF-8")
 
     @all_rooms = %w[
         5133 5134 5135 5136 5137 5138
