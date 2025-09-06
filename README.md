@@ -72,12 +72,23 @@
   - [:day, :time] で高速検索
   - [:day, :time, :number] にユニーク制約、二重登録を禁止
 
-### 更新
-学期の切替時に `db/data/timetable.csv` を差し替え→githubにpush
+#### 本番環境
+学期の切替時に `db/data/timetable.csv` を差し替え → GitHub に push  
 
-デプロイ後、Render の `postDeployCommand` で
-- bin/rails db:migrate
-- bin/rails import:timetable により自動更新
+デプロイ後、Render の `postDeployCommand` により自動更新：
+- `bin/rails db:migrate`
+- `bin/rails import:timetable`
+
+#### 開発環境
+学期の切替時に CSV を更新したら、以下を実行：
+
+```bash
+# CSVの内容で occupancies テーブルを全入替
+bin/rails import:timetable
+
+# モデルのバリデーションやユニーク制約が効いているか確認
+bin/rails test test/models
+```
 
 ## 技術メモ（お問い合わせフォーム）
 - フレームワーク: Rails **Action Mailer**

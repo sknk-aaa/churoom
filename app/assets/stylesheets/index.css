@@ -65,8 +65,8 @@ input[type="radio"][name="mode-select"]:checked + label {
 .search-time-link__button {
   display: inline-block;
   width: 100%;
-  background-color: #F96E1D;
-  color: #fff;
+  background-color: #eb7936;
+  color: #01172e; 
   padding: 0.7rem;
   margin-top:3rem;
   border-radius: 8px;
@@ -75,7 +75,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   cursor: pointer;
 }
 .search-time-link__button:hover {
-  background-color: #b94400;
+  background-color: #843507;
 }
 
 /* 現在の空き教室セクション（モバイル、タブレット） */
