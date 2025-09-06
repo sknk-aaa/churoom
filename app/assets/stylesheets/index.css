@@ -1,28 +1,24 @@
 /* モード選択セクション */
-.mode-select{
-    display:flex;
-    width:80%;
-    margin: 0 auto;
-    margin-top:1rem;
-    justify-content: center;
-    border-radius: 999px;
-    border:2px solid #0069d9;
-    overflow: hidden;     
+  .mode-select{        
+    width: 80%;       
+    margin: 2rem auto 1rem;     
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px; 
+    padding: 4px;
+    background: #eaf4ff;        
+    border: 1px solid #cfe0f8;   
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(7,73,143,.06); 
   }
-.mode-select label{
-    text-align: center;
-    width:100%;
-    padding:1rem 0;
-    margin:0;
-    cursor: pointer;
+  .mode-select input[type="radio"]{ position:absolute; opacity:0; pointer-events:none; } 
+  .mode-select label{
+    text-align:center; font-weight:700; cursor:pointer;
+    padding:10px 14px; border-radius:10px; color:#0d61bf;
   }
-input[type="radio"][name="mode-select"] {
-  display: none;
-}
-input[type="radio"][name="mode-select"]:checked + label {
-  background-color: #0046FF;
-  color:white;
-}
+  /* 選択中見た目 */
+  #time:checked + label[for="time"],
+  #room:checked + label[for="room"]{
+    background:#fff; color:#07498f; box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
 
 /* 時間から探すセクション */
 .search-time{
@@ -66,7 +62,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   display: inline-block;
   width: 100%;
   background-color: #eb7936;
-  color: #01172e; 
+  color: #f9fcff; 
   padding: 0.7rem;
   margin-top:3rem;
   border-radius: 8px;
@@ -90,7 +86,7 @@ input[type="radio"][name="mode-select"]:checked + label {
 .availability__card{
   border:3px solid #5194d7; 
   border-radius: 8px;
-  margin-bottom:2rem;
+  padding-bottom:1rem;
 }
 .availability__time{
   color:#001120;
@@ -135,13 +131,15 @@ input[type="radio"][name="mode-select"]:checked + label {
 .current-link__btn{
     display:inline-block;
     padding: 0.5rem 1.5rem;
-    background-color: #00bfff;
+    background-color: #284dbde7;
     color: white;
     border-radius: 6px;
     font-size: 1.5rem;
     text-decoration: none;
   }
-
+.current-link__btn:hover{
+    background-color: #143658;
+  }
 /* 教室から探すセクション */
 .search-room {  
     display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
@@ -156,6 +154,14 @@ input[type="radio"][name="mode-select"]:checked + label {
   margin-top: 2rem;
   text-align: center;
 }
+  .all-rooms__card{
+    border: 1px solid rgba(7,73,143,.14); 
+    border-radius: 14px;
+    padding: 1.25rem;
+    background-color: #fff;
+    box-shadow: 0 10px 26px rgba(7,73,143,.06); 
+    margin-bottom: 2rem;
+  }
 .all-rooms__building-name{
     font-size: 1.5rem;
 }
@@ -182,6 +188,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   text-align: center;
   background-color: rgb(219, 238, 255);
   color: black;
+  display:none;
 }
 .index__contact{
   width:90%;
@@ -206,6 +213,7 @@ input[type="radio"][name="mode-select"]:checked + label {
   border-radius: 6px;
   font-size:1.1rem;
 }
+
 
 
 /* タブレット用レスポンシブ*/
@@ -238,29 +246,65 @@ input[type="radio"][name="mode-select"]:checked + label {
     font-size:1.5rem;
     margin-right: 0.5rem;
   }
-
 }
+
 /* PC用レスポンシブ*/
 @media screen and (min-width: 1024px) {
+  /* セグメント（ラジオ→タブ風） */
   .mode-select{
-    width:40%;
+    width: 560px;                 
   }
+
+  /* 検索（時間）カードの中身 */
+  .search-time-section{
+    margin-top: 1.25rem;          
+    border: 1px solid rgba(7,73,143,.14);  
+    border-radius: 14px;         
+    padding: 1.25rem;              
+    background-color: #fff;
+    box-shadow: 0 12px 32px rgba(7,73,143,.08); 
+    margin-bottom:3rem;
+  }
+
+
+  /* カード自体の幅・位置 */
   .search-time{
-      width:50%;
+    width: 50%;                
+    margin: 0 auto;             
   }
+  .pulldown{
+    width:90%;
+    margin: 0 auto;
+  }
+  .search-time p{
+    font-size: 1.1rem;              
+    color: #6b7a90;             
+  }
+
+  .search-time-link{
+    width: 70%;                  
+    margin: 1rem 0 0;           
+    margin: 0 auto;
+    margin-top:1rem;
+    margin-bottom:1rem;
+  }
+
   .search-room{
-      width:60%;
+    width: 50%;                
+    margin: 0 auto 2rem;          
   }
-  .all-rooms__floors{
-    margin-bottom:2rem;
+  .search-room p{
+    font-size: 1.1rem;           
+    margin-bottom: 1rem;
+    color: #6b7a90;
   }
+  .all-rooms__floors{ margin-bottom: 2rem; }
+
   .current-link{
     display: block;
+    margin: 16px auto 2rem;
+    text-align: center;
   }
-  .availability--current {
-    display:none;
-  }
-  .index__contact--wrapper {
-    display: none;
-  }
+  .availability--current { display: none; }
+  .index__contact--wrapper { display: none; }
 }

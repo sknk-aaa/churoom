@@ -61,7 +61,10 @@
   <body>
     <div class="wrapper">
       <header>
-        <%= link_to("chuRoom", search_path, class: "header__logo") %>
+        <%= link_to search_path, class: "header__logo" do %>
+          <img src="/icon-512.png" alt="chuRoom"> chuRoom
+        <% end %>
+        
 
         <!-- ヘッダーナビ（pc, タブレットで表示） -->
         <ul class="header__nav--large">

@@ -88,4 +88,8 @@ Rails.application.configure do
   }
 
   config.hosts << /\A[a-z0-9-]+\.ngrok-free\.app\z/
+
+  config.assets.debug   = true
+  config.assets.compile = true
+  config.assets.digest  = false
 end

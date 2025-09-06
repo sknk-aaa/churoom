@@ -44,12 +44,19 @@ header{
   font-family: "Arial";
 }
 .header__logo{
-  margin-left:1rem;
+  margin-left:1.5rem;
   color:#ffffff;
-  font-size:1.5rem;
+  font-size:1.4rem;
   font-weight: bold;
   display: inline-block;
   transition: color 0.1s ease;
+}
+.header__logo img{
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-right:0.2rem;
+  vertical-align: middle;
+  border-radius: 8px;
 }
 .header__logo:hover{
   color: #d4f9ff;
@@ -175,7 +182,7 @@ footer a{
   margin-top:0.3rem;
 }
 
-/* PC, 用レスポンシブ */
+/* PC用レスポンシブ */
 @media screen and (min-width: 768px) {
 /* ヘッダー部分*/
   header{
@@ -192,7 +199,7 @@ footer a{
   .header__nav--large{
     display: flex;
     gap: 1rem;
-    margin-right:1rem;
+    margin-right:2rem;
   }
   .header__nav--large a{
     font-size:1rem;

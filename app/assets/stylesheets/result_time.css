@@ -6,20 +6,27 @@
 .result-time h2{
     font-size: 1.5rem;
     margin: 1.5rem 0;
+    margin-bottom:2rem;
     text-align: center;
     color: #001120;
 }
 .result-time .availability__body{
     margin-bottom:5rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 26px rgba(7,73,143,.06); 
+    border: 1px solid rgba(7,73,143,.14);  
+    border-radius: 14px;
+    padding-top:1rem;
 }
 .result-time .availability__floors{
-    padding-bottom: 1rem;
+    padding-bottom: 1.2rem;
 }
 .result-time .availability__building-name{
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    margin-left: 0.3rem;
+    font-size: 1.3rem;
+    margin-top: 0rem;
+    margin-bottom: 0.7rem;
+    margin-left: 0.4rem;
 }
 .result-time .availability__floors{
     width: 90%;
@@ -81,6 +88,11 @@
     width: 15%;
     font-size:1.3rem;
     padding: 0.7rem;
+}
+.result-time .availability__body{
+    width:80%;
+    margin:0 auto;
+    padding: 1.25rem;
 }
 
 }

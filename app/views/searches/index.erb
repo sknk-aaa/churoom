@@ -1,114 +1,124 @@
-<% content_for :raw_title, "中央大学 空き教室検索 |chuRoom" %>
+<% content_for :raw_title, "中央大学 空き教室検索 | chuRoom" %>
 <% provide :meta_description, "中央大学後楽園キャンパスの空き教室を簡単に検索できる非公式サービスです。
 自習や打ち合わせに使える教室をスマホ・PCからすぐチェック可能。【2025年後期対応】" %>
 
-<!--モード選択セクション -->
-<section class="mode-select">
-    <input type="radio" name="mode-select" value="mode-time" id="time" checked>
-    <label for="time">時間から探す</label>
-    <input type="radio" name="mode-select" value="mode-room" id="room">
-    <label for="room">教室から探す</label>
-</section>
+<div class="index__wrapper">
+  <!--モード選択セクション -->
+  <section class="mode-select">
+      <input type="radio" name="mode-select" value="mode-time" id="time" checked>
+      <label for="time">時間から探す</label>
+      <input type="radio" name="mode-select" value="mode-room" id="room">
+      <label for="room">教室から探す</label>
+  </section>
 
-<!--時間から探すセクション -->
-<section id="mode-time-form" class="search-time">
-  <p>「時間から探す」モードでは、曜日と時限を選択して空き教室を検索できます。</p>
-  <%= form_with url: search_filter_path, method: :post, local: true do %>
-    <div class="pulldown pulldown--day">
-      <label for="day-select" class="day-select-label">曜日</label>
-        <div class="pulldown--options">
-          <select name="day" id="day-select" required>
-            <option value="" selected hidden>曜日を選択</option>
-            <option value="Mon">月曜</option>
-            <option value="Tue">火曜</option>
-            <option value="Wed">水曜</option>
-            <option value="Thu">木曜</option>
-            <option value="Fri">金曜</option>
-            <option value="Sat">土曜</option>
-          </select>
-        </div>
-    </div>
+  <!--時間から探すセクション -->
+  <section id="mode-time-form" class="search-time">
+    <p>「時間から探す」モードでは、曜日と時限を選択して空き教室を検索できます。</p>
+    <%= form_with url: search_filter_path, method: :post, local: true, class: "search-time-section" do %>
+      <div class="pulldown pulldown--day">
+        <label for="day-select" class="day-select-label">曜日</label>
+          <div class="pulldown--options">
+            <select name="day" id="day-select" required>
+              <option value="" selected hidden>曜日を選択</option>
+              <option value="Mon">月曜</option>
+              <option value="Tue">火曜</option>
+              <option value="Wed">水曜</option>
+              <option value="Thu">木曜</option>
+              <option value="Fri">金曜</option>
+              <option value="Sat">土曜</option>
+            </select>
+          </div>
+      </div>
 
-    <div class="pulldown pulldown--time">
-        <label for="time-select" class="time-select-label">時限</label>
-        <div class="pulldown--options">
-          <select name="time" id="time-select" required>
-            <option value="" selected hidden>時限を選択</option>
-            <option value="1">1限</option>
-            <option value="2">2限</option>
-            <option value="3">3限</option>
-            <option value="4">4限</option>
-            <option value="5">5限</option>
-          </select>
-        </div>
-    </div>
+      <div class="pulldown pulldown--time">
+          <label for="time-select" class="time-select-label">時限</label>
+          <div class="pulldown--options">
+            <select name="time" id="time-select" required>
+              <option value="" selected hidden>時限を選択</option>
+              <option value="1">1限</option>
+              <option value="2">2限</option>
+              <option value="3">3限</option>
+              <option value="4">4限</option>
+              <option value="5">5限</option>
+            </select>
+          </div>
+      </div>
 
-    <div class="search-time-link">
-        <input type="submit" value="検索" class="btn search-time-link__button">
-    </div>
-  <% end %>
+      <div class="search-time-link">
+          <input type="submit" value="検索" class="btn search-time-link__button">
+      </div>
+    <% end %>
 
-  <!--「現在の空き教室はこちら」セクション -->
+    <!--「現在の空き教室はこちら」セクション -->
 
-  <% if @time.present? && @day != "Sun" %>
-    <!-- モバイルで、タブレットで表示 -->
+    
+    <!-- モバイル、タブレットで表示 -->
     <section class="availability availability--current">    
       <h1>現在の空き教室一覧</h1>
       <div class="availability__card">
-        <h2 class="availability__time"><%= @days_dic[@day] %>曜<%= @time %>限</h2>
-        <div class="availability__body">
-          <% [5, 6].each do |building| %>
-            <h3 class="availability__building-name"><%= building %>号館</h3>
-            <div class="availability__floors">
-              <!-- {5 => [1, 2, 3, 5], 6 => [2, 3, 4]} -->
-              <% @floors_by_building[building].each do |floor| %> 
-                <div class="availability__floor">
-                  <% @available_rooms_index[building][floor].each do |room| %>
-                      <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
-                  <% end %>
-                </div>
+        <% if @time.present? && @day != "Sun" %>
+          <h2 class="availability__time"><%= @days_dic[@day] %>曜<%= @time %>限</h2>
+          <div class="availability__body">
+            <% [5, 6].each do |building| %>
+              <h3 class="availability__building-name"><%= building %>号館</h3>
+              <div class="availability__floors">
+                <!-- {5 => [1, 2, 3, 5], 6 => [2, 3, 4]} -->
+                <% @floors_by_building[building].each do |floor| %> 
+                  <div class="availability__floor">
+                    <% @available_rooms_index[building][floor].each do |room| %>
+                        <span class="availability__room"><%= link_to(room, result_room_path(number: room)) %></span>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="availability__no-data">講義時間外です。</p>
+        <% end %>
+      </div>
+    </section>
+      
+    <!-- PCでの表示 -->
+    <section class="current-link">
+      <% if @time.present? && @day != "Sun" %>      
+        <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), 
+        class:"current-link__btn current-link__btn") %>
+      <% end %>
+    </section>
+
+  </section>
+
+
+  <!--教室から探すセクション -->
+  <section id="mode-room-form" class="search-room all-rooms">
+    <p>「教室から探す」モードでは、教室から時間割表を確認することができます。</p>
+    <div class="all-rooms__card">
+      <% [5, 6].each do |building| %>
+        <h2 class="all-rooms__building-name"><%= building %>号館</h2>
+        <div class="all-rooms__floors">
+          <% @floors_by_building[building].each do |floor| %>
+            <div class="all-rooms__floor">
+              <% @all_rooms_index[building][floor].each do |room| %>
+                <span class="all-rooms__room"><%= link_to(room, result_room_path(number: room)) %></span>
               <% end %>
             </div>
           <% end %>
         </div>
-      </div>
-    </section>
-    
-    <!-- PCでの表示 -->
-    <section class="current-link">          
-      <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), 
-      class:"current-link__btn current-link__btn") %>
-    </section>
-  <% end %>
-</section>
-
-
-<!--教室から探すセクション -->
-<section id="mode-room-form" class="search-room all-rooms">
-  <p>「教室から探す」モードでは、教室を選択することで時間割表を確認することができます。</p>
-  <% [5, 6].each do |building| %>
-    <h2 class="all-rooms__building-name"><%= building %>号館</h2>
-    <div class="all-rooms__floors">
-      <% @floors_by_building[building].each do |floor| %>
-        <div class="all-rooms__floor">
-          <% @all_rooms_index[building][floor].each do |room| %>
-            <span class="all-rooms__room"><%= link_to(room, result_room_path(number: room)) %></span>
-          <% end %>
-        </div>
       <% end %>
     </div>
-  <% end %>
-</section>
+  </section>
 
 
-<!--お問い合わせセクション -->
+  <!--お問い合わせセクション -->
 
-<section class="index__contact--wrapper" id="contact">
-  <div class="index__contact">
-  <h2 id="contact-title" class="index__contact--title">お問い合わせ</h2>
-    <p class="index__contact--desc">
-      chuRoom に関するご意見・不具合報告・機能リクエストを受け付けています。<br>
-    </p>
-    <%= link_to("お問い合わせフォームはこちら", new_contact_path, class:"index__contact--link") %>
-  </div>
-</section>
+  <section class="index__contact--wrapper" id="contact">
+    <div class="index__contact">
+    <h2 id="contact-title" class="index__contact--title">お問い合わせ</h2>
+      <p class="index__contact--desc">
+        chuRoom に関するご意見・不具合報告・機能リクエストを受け付けています。<br>
+      </p>
+      <%= link_to("お問い合わせフォームはこちら", new_contact_path, class:"index__contact--link") %>
+    </div>
+  </section>
+</div>
