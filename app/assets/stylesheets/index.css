@@ -224,6 +224,9 @@
   .search-time{
     width:80%;
   }
+    .search-time p{
+  margin-bottom: 2rem;
+}
   .search-room{
     width: 80%;
     margin: 0 auto;

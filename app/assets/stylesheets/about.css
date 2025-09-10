@@ -83,32 +83,17 @@
 }
 
 /* ----- 機能カード -------------------------------------- */
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.75rem;
+.feature-card__image__pc {
+  display: none; /* PC画像はデフォルトで非表示 */
 }
-
-.feature-card {
-  border: 1px solid var(--about-border);
-  border-radius: 12px;
-  padding: 0.875rem 1rem;
-  background: #fff;
-}
-
-.feature-card__title {
-  margin: 0 0 0.25rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.feature-card__desc {
-  margin: 0;
-  color: var(--about-muted);
-}
-
+  .section-divider{
+    display:block;
+    height:2px;
+    width:100%;
+    background:#ccc;
+    margin:16px 0;
+    color:black;
+  }
 /* ----- 使い方（手順） ---------------------------------- */
 .steps {
   padding-left: 1.25rem; /* デフォルトより少しだけ内側に */
@@ -200,6 +185,16 @@
   .link-list {
     grid-template-columns: 1fr 1fr; /* 情報を2列で整理 */
   }
+    .feature-card__image{
+    display:none;
+  }
+  .feature-card__image__pc{
+    display:block;
+    margin-top:0.5rem;
+  }
+  .section-divider{
+    display:none;
+  }
 }
 
 /* =========================================================
@@ -213,4 +208,5 @@
   .about__section {
     padding-block: 1.75rem;
   }
+
 }
