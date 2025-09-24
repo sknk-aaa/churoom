@@ -8,7 +8,7 @@ namespace :import do
     raise "CSV not found: #{path}" unless File.exist?(path)
 
     map_day = {
-      "月"=>"Mon","火"=>"Tue","水"=>"Wed","木"=>"Thu","金"=>"Fri","土"=>"Sat","日"=>"Sun"
+      "月"=>"Mon", "火"=>"Tue", "水"=>"Wed", "木"=>"Thu", "金"=>"Fri", "土"=>"Sat", "日"=>"Sun"
     }
 
     puts "[import] start: #{path}"
@@ -23,8 +23,8 @@ namespace :import do
         day = map_day[day] || day
         day = day.capitalize
 
-        time   = row["time"].to_s.tr("０-９","0-9").to_i
-        number = row["number"].to_s.tr("０-９","0-9").strip
+        time   = row["time"].to_s.tr("０-９", "0-9").to_i
+        number = row["number"].to_s.tr("０-９", "0-9").strip
 
         Occupancy.create!(day:, time:, number:)  # 重複はunique制約で弾かれる
         ok += 1
