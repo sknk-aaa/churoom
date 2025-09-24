@@ -7,6 +7,8 @@ class SearchesController < ApplicationController
     @day=week[Date.today.wday]
     now = Time.zone.now
     @time= period_for(now)
+    @day="Fri"
+    @time=3
     @available_rooms_index = build_available_index(@day, @time)
   end
 
