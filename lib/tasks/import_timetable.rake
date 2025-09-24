@@ -1,27 +1,38 @@
+# lib/tasks/import_timetable.rake
+require "csv"
+
 namespace :import do
-  desc "Replace occupancies with CSV data (full refresh)"
-
+  desc "Timetable CSV import"
   task timetable: :environment do
-    require "csv"
+    path = Rails.root.join("db", "data", "timetable.csv")
+    raise "CSV not found: #{path}" unless File.exist?(path)
 
-    file = Rails.root.join("db", "data", "timetable.csv")
-    rows=0
+    map_day = {
+      "月"=>"Mon","火"=>"Tue","水"=>"Wed","木"=>"Thu","金"=>"Fri","土"=>"Sat","日"=>"Sun"
+    }
 
-    ActiveRecord::Base.transaction do
-      Occupancy.delete_all
+    puts "[import] start: #{path}"
+    Occupancy.delete_all  # ← 学期ごとに全入替する場合は必須
 
-      CSV.foreach(file, headers: true, encoding: "SJIS:UTF-8") do |row|
-        day    = row["day"]&.strip
-        time   = row["time"].to_i
-        number = row["number"].to_s.strip
+    ok = 0; ng = 0
+    CSV.foreach(path, headers: true, encoding: "SJIS:UTF-8") do |row|
+      begin
+        # --- 正規化 ---
+        day_raw = row["day"].to_s
+        day = day_raw.delete("\uFEFF").strip
+        day = map_day[day] || day
+        day = day.capitalize
 
-        rows+=1
+        time   = row["time"].to_s.tr("０-９","0-9").to_i
+        number = row["number"].to_s.tr("０-９","0-9").strip
 
-        next if day.blank? || time.zero? || number.blank?
-        Occupancy.find_or_create_by!(day:, time:, number:)
+        Occupancy.create!(day:, time:, number:)  # 重複はunique制約で弾かれる
+        ok += 1
+      rescue => e
+        ng += 1
+        puts "[import][skip] #{row.inspect} err=#{e.class}: #{e.message}"
       end
     end
-
-    puts " #{rows}が登録されました"
+    puts "[import] done ok=#{ok} ng=#{ng} total=#{Occupancy.count}"
   end
 end
