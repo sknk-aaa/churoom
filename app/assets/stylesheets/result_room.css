@@ -31,7 +31,7 @@ caption{
 .result-room__btn{
     text-align: center;
     margin-top: 3rem;
-    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .result-room .btn {
   display: inline-block;
