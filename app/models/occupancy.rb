@@ -7,4 +7,3 @@ class Occupancy < ApplicationRecord
 
   validates :number, uniqueness: { scope: [ :day, :time ] }
 end
-
