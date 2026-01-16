@@ -15,9 +15,9 @@
         <li><a href="#features">2. 主な機能</a></li>
         <li><a href="#howto">3. 使い方</a></li>
         <li><a href="#notice">4. 利用上の注意</a></li>
-        <li><a href="#developer">5. 開発者情報</a></li>
-        <li><a href="#roadmap">6. 今後の予定</a></li>
-        <li><a href="#disclaimer">7. 免責事項</a></li>
+        <li><a href="#roadmap">5. 今後の予定</a></li>
+        <li><a href="#disclaimer">6. 免責事項</a></li>
+        <li><a href="#related">7. 関連サイトの紹介</a></li>
       </ul>
     </nav>
   </section>
@@ -84,41 +84,57 @@
       <dd>個人の学習・ゼミ活動等での利用を想定しています。大人数イベントなどの予約用途には向きません。</dd>
     </dl>
   </section>
-
-  <!-- ===== 5. 開発者情報 ============================================= -->
-  <section id="developer" class="about__section">
-    <h2 class="about__section-title">5. 開発者情報</h2>
-    <ul class="link-list">
-      <li>
-        <span class="link-list__label"><%= image_tag "qiita-logo.png", alt: "Qiita", class: "link-list__icon" %>
-        Qiita：</span>
-        <a href="https://qiita.com/itotaka2525" target="_blank" rel="noopener noreferrer">qiita.com/itotaka</a>
-      </li>
-      <li>
-        <span class="link-list__label"><%= image_tag "X-logo.png", alt: "X", class: "link-list__icon" %>
-        ：</span>
-        <a href="https://x.com/chuRoom_info" target="_blank" rel="noopener noreferrer">@chuRoom_info</a>
-      </li>
-
-    </ul>
-  </section>
-
-  <!-- ===== 6. 今後の予定 ===================================== -->
+  <!-- ===== 5. 今後の予定 ===================================== -->
   <section id="roadmap" class="about__section">
-    <h2 class="about__section-title">6. 今後の予定</h2>
+    <h2 class="about__section-title">5. 今後の予定</h2>
     <ul class="roadmap">
       <li>🔍 他キャンパスの対応</li>
       <li>⚙️ お気に入り教室の保存</li>
     </ul>
-    <p class="about__muted">最終更新：2025-09-04</p>
+    <p class="about__muted">最終更新：2026-01-04</p>
   </section>
 
-  <!-- ===== 7. 免責事項 =============================================== -->
+  <!-- ===== 6. 免責事項 =============================================== -->
   <section id="disclaimer" class="about__section">
-    <h2 class="about__section-title">7. 免責事項</h2>
+    <h2 class="about__section-title">6. 免責事項</h2>
     <p class="about__text small">
       本サイトは大学の<strong>非公式</strong>サービスであり、大学や第三者の問い合わせ窓口ではありません。
       本サイトの利用によって生じたいかなる損害についても、開発者は責任を負いません。
     </p>
   </section>
+
+<!-- ===== 7. 関連サイトの紹介 ======================================= -->
+<section id="related" class="about__section">
+  <h2 class="about__section-title">7. 関連サイトの紹介</h2>
+
+  <div class="related-site">
+    <div class="related-site__content">
+      <h3 class="about__sub-title">キャンパスガイド（Canvas Compass）</h3>
+
+      <p class="about__text">
+        <a href="https://canvas-compass.net/campus_guide/"
+           target="_blank"
+           rel="noopener noreferrer">
+          キャンパスガイド
+        </a>
+        は、大学生活に役立つ情報をまとめた学生向けの非公式情報サイトです。
+      </p>
+      <div class="related-site__image">
+        <%= image_tag "canvas.png",
+            alt: "キャンパスガイド（Canvas Compass）のトップページ画面",
+            loading: "lazy" %>
+      </div>
+
+      <p class="about__text">
+        キャンパス内の施設案内や、履修・学生生活に関する基本的な情報が整理されており、
+        初学年の学生や、キャンパスの利用に不慣れな方にとって参考になります。
+      </p>
+
+      <p class="about__text small">
+        ※ 本サイトと同様、大学公式サイトではありません。
+        内容の正確性については、必ず公式情報と併せてご確認ください。
+      </p>
+    </div>
+  </div>
+</section>
 </div>
