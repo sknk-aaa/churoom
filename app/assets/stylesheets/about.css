@@ -210,3 +210,7 @@
   }
 
 }
+.about__text a{
+  color:var(--about-accent);
+  text-decoration:none;
+}
