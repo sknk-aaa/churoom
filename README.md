@@ -49,7 +49,7 @@
 # 技術
 
 ## 技術スタック
-- 言語：Ruby 3.2.2 / HTML / CSS / JavaScript
+- 言語：Ruby 3.3.10 / HTML / CSS / JavaScript
 - フレームワーク：Rails 8系, Stimulus
 - デプロイ：Render（Git連携）
 - データ管理：PostgreSQL
@@ -104,4 +104,3 @@ bin/rails test test/models
 ## 今後の予定
 - 他キャンパス対応
 - お気に入り教室の保存
-
