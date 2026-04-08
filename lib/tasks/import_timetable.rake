@@ -12,7 +12,7 @@ namespace :import do
     }
 
     puts "[import] start: #{path}"
-    Occupancy.delete_all  # ← 学期ごとに全入替する場合は必須
+    Occupancy.delete_all
 
     ok = 0; ng = 0
     CSV.foreach(path, headers: true, encoding: "SJIS:UTF-8") do |row|
@@ -26,7 +26,7 @@ namespace :import do
         time   = row["time"].to_s.tr("０-９", "0-9").to_i
         number = row["number"].to_s.tr("０-９", "0-9").strip
 
-        Occupancy.create!(day:, time:, number:)  # 重複はunique制約で弾かれる
+        Occupancy.create!(day:, time:, number:)  # 重複はunique制約で弾く
         ok += 1
       rescue => e
         ng += 1
