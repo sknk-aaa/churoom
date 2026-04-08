@@ -36,6 +36,10 @@
 }
 
 /* ----- 目次（ページ内ナビ） ---------------------------- */
+.about__toc {
+  margin-bottom: 1rem;
+}
+
 .about__toc ul {
   display: flex;
   flex-wrap: wrap;

@@ -3,10 +3,7 @@ class SearchesController < ApplicationController
   before_action :load_data, only: [ :index, :result_time, :result_room, :filter ]
 
   def index
-    week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-    @day=week[Date.today.wday]
-    now = Time.zone.now
-    @time= period_for(now)
+    @day, @time = current_slot
     @available_rooms_index = build_available_index(@day, @time)
   end
 
@@ -21,6 +18,7 @@ class SearchesController < ApplicationController
     @room_data = Occupancy.where(number: @room_number)
                           .order(:day, :time)
                           .select(:day, :time)
+    @current_day, @current_time = current_slot
   end
 
 
@@ -57,6 +55,13 @@ def build_available_index(day, time)
 
     time
     end
+
+  def current_slot
+    week = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+    now = Time.zone.now
+
+    [ week[Time.zone.today.wday], period_for(now) ]
+  end
 
   def filter # 検索ページからのフィルター機能
     redirect_to result_time_path(

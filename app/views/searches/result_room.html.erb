@@ -17,10 +17,13 @@
                 <tr>
                     <td><%= time %></td>
                     <% ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].each do |day| %>
-                        <% if @room_data.any? {|row| row[:day] == day && row[:time] == time} %>
-                            <td>×</td>
+                        <% occupied = @room_data.any? { |row| row[:day] == day && row[:time] == time } %>
+                        <% current_slot = day == @current_day && time == @current_time %>
+                        <% cell_classes = current_slot ? "result-room__current-slot" : nil %>
+                        <% if occupied %>
+                            <td class="<%= cell_classes %>">×</td>
                         <% else %>
-                            <td>〇</td>
+                            <td class="<%= cell_classes %>">〇</td>
                         <% end %>
                     <% end %>
                 </tr>

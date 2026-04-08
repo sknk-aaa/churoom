@@ -74,7 +74,7 @@
   background-color: #843507;
 }
 
-/* 現在の空き教室セクション（モバイル、タブレット） */
+/* 現在の空き教室セクション */
 .availability--current h1{
     font-size: 1.5rem;
     margin-top:3rem;
@@ -122,24 +122,14 @@
   font-size: 1.1rem;
 }
 
-/* 現在の空き教室セクション（PC） */
-.current-link{
-    display: none;
-    text-align: center;
-    margin-top: 3rem;
-  }
-.current-link__btn{
-    display:inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: #284dbde7;
-    color: white;
-    border-radius: 6px;
-    font-size: 1.5rem;
-    text-decoration: none;
-  }
-.current-link__btn:hover{
-    background-color: #143658;
-  }
+.availability__no-data {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  color: #143658;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
 /* 教室から探すセクション */
 .search-room {  
     display: none;  /* デフォルトで非表示、ラジオボタン選択時に表示する */
@@ -284,6 +274,42 @@
     color: #6b7a90;             
   }
 
+  .availability--current {
+    display: block;
+    margin: 0 auto 2rem;
+  }
+
+  .availability--current h1 {
+    font-size: 1.8rem;
+  }
+
+  .availability__card {
+    border-radius: 14px;
+    padding: 1rem 0 1.5rem;
+    box-shadow: 0 12px 32px rgba(7,73,143,.08);
+  }
+
+  .availability__time {
+    font-size: 1.7rem;
+  }
+
+  .availability__building-name {
+    font-size: 1.35rem;
+    margin-left: 1.5rem;
+  }
+
+  .availability__floors {
+    width: 92%;
+  }
+
+  .availability__room a {
+    width: auto;
+    min-width: 72px;
+    padding: 0.55rem 0.9rem;
+    margin: 0.25rem;
+    font-size: 1.2rem;
+  }
+
   .search-time-link{
     width: 70%;                  
     margin: 1rem 0 0;           
@@ -302,12 +328,5 @@
     color: #6b7a90;
   }
   .all-rooms__floors{ margin-bottom: 2rem; }
-
-  .current-link{
-    display: block;
-    margin: 16px auto 2rem;
-    text-align: center;
-  }
-  .availability--current { display: none; }
   .index__contact--wrapper { display: none; }
 }

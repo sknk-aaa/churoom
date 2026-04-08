@@ -14,6 +14,11 @@ th, td {
   border: 1px solid #333;
   padding: 0.7rem;
 }
+
+.result-room__timetable td.result-room__current-slot {
+  background-color: #ffe7a3;
+}
+
 caption{
     caption-side: bottom;
     text-align:center;

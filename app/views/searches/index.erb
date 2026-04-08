@@ -52,7 +52,6 @@
     <!--「現在の空き教室はこちら」セクション -->
 
     
-    <!-- モバイル、タブレットで表示 -->
     <section class="availability availability--current">    
       <h1>現在の空き教室一覧</h1>
       <div class="availability__card">
@@ -77,14 +76,6 @@
           <p class="availability__no-data">講義時間外です。</p>
         <% end %>
       </div>
-    </section>
-      
-    <!-- PCでの表示 -->
-    <section class="current-link">
-      <% if @time.present? && @day != "Sun" %>      
-        <%= link_to("現在の空き教室はこちら", result_time_path(day: @day,time: @time), 
-        class:"current-link__btn current-link__btn") %>
-      <% end %>
     </section>
 
   </section>
